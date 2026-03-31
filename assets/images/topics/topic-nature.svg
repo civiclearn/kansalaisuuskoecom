@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 280">
+  <defs>
+    <linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f766e"/>
+      <stop offset="100%" stop-color="#0d9488"/>
+    </linearGradient>
+  </defs>
+  <rect width="560" height="280" fill="url(#g4)"/>
+  <!-- Water wave lines -->
+  <path d="M140 140 Q175 125 210 140 Q245 155 280 140 Q315 125 350 140 Q385 155 420 140" stroke="rgba(255,255,255,0.25)" stroke-width="3" fill="none"/>
+  <path d="M140 158 Q175 143 210 158 Q245 173 280 158 Q315 143 350 158 Q385 173 420 158" stroke="rgba(255,255,255,0.18)" stroke-width="2.5" fill="none"/>
+  <path d="M140 174 Q175 159 210 174 Q245 189 280 174 Q315 159 350 174 Q385 189 420 174" stroke="rgba(255,255,255,0.12)" stroke-width="2" fill="none"/>
+  <!-- Sun / reflection -->
+  <circle cx="280" cy="105" r="28" fill="rgba(255,255,255,0.15)"/>
+  <circle cx="280" cy="105" r="16" fill="rgba(255,255,255,0.22)"/>
+  <text x="280" y="238" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="rgba(255,255,255,0.7)" letter-spacing="2">NATURE &amp; ECONOMY</text>
+</svg>

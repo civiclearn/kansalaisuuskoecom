@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Aalto University: Innovation in Design, Technology, and Business — Kansalaisuuskoe.com</title>
+
+  <meta name="description" content="Aalto University stands as one of Finland’s leading institutions for higher education and research, recognized globally for its focus on design, technology,…">
+  <link rel="canonical" href="https://kansalaisuuskoe.com/aalto-university-innovation-in-design-technology-and-business/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Aalto University: Innovation in Design, Technology, and Business">
+  <meta property="og:description" content="Aalto University stands as one of Finland’s leading institutions for higher education and research, recognized globally for its focus on design, technology,…">
+  <meta property="og:url" content="https://kansalaisuuskoe.com/aalto-university-innovation-in-design-technology-and-business/">
+  <meta property="og:image" content="https://kansalaisuuskoe.com/assets/images/og-default.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="alternate" hreflang="en" href="https://kansalaisuuskoe.com/aalto-university-innovation-in-design-technology-and-business/">
+  <link rel="alternate" hreflang="x-default" href="https://kansalaisuuskoe.com/aalto-university-innovation-in-design-technology-and-business/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:    #003580;
+      --blue-dk: #002460;
+      --blue-lt: #e8eef8;
+      --text:    #1a1a2e;
+      --muted:   #64748b;
+      --border:  #e2e8f0;
+      --radius:  0.75rem;
+      --font:    'Lexend', system-ui, sans-serif;
+    }
+
+    body {
+      font-family: var(--font);
+      color: var(--text);
+      background: #fff;
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    /* ── HEADER ── */
+    .cl-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--blue);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    }
+    .cl-header-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .cl-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1.05rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .cl-logo img { width: 28px; height: 28px; }
+    .cl-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      flex: 1;
+    }
+    .cl-nav a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 400;
+      white-space: nowrap;
+      transition: color 0.15s;
+    }
+    .cl-nav a:hover { color: #fff; }
+    .cl-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-shrink: 0;
+    }
+    .cl-powered {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.6);
+      white-space: nowrap;
+    }
+    .cl-powered span { font-weight: 600; color: rgba(255,255,255,0.85); }
+    .cl-btn {
+      background: #fff;
+      color: var(--blue);
+      font-family: var(--font);
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 0.5rem 1.2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity 0.15s;
+    }
+    .cl-btn:hover { opacity: 0.9; }
+
+    /* ── MOBILE HEADER ── */
+    .cl-hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.4rem;
+      margin-left: auto;
+    }
+    .cl-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #fff;
+      margin: 4px 0;
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+    .cl-mobile-menu {
+      display: none;
+      background: var(--blue-dk);
+      padding: 1rem 1.5rem 1.5rem;
+    }
+    .cl-mobile-menu.open { display: block; }
+    .cl-mobile-menu a {
+      display: block;
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      padding: 0.6rem 0;
+      font-size: 0.95rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .cl-mobile-menu .cl-btn {
+      display: block;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 820px) {
+      .cl-nav, .cl-right { display: none; }
+      .cl-hamburger { display: block; }
+    }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb {
+      background: var(--blue-lt);
+      border-bottom: 1px solid var(--border);
+    }
+    .breadcrumb-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0.6rem 1.5rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+    .breadcrumb a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb-sep { color: var(--muted); }
+
+    /* ── MAIN LAYOUT ── */
+    .article-outer {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    /* ── ARTICLE ── */
+    .article-header { margin-bottom: 2rem; }
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .article-tag {
+      background: var(--blue-lt);
+      color: var(--blue);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .article-date {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .article-reading-time {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .article-reading-time::before { content: "· "; }
+
+    h1.article-title {
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--text);
+      margin-bottom: 1.2rem;
+    }
+
+    /* ── LANG SWITCHER ── */
+    .lang-switcher {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .lang-switcher a, .lang-switcher span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      color: var(--muted);
+      transition: all 0.15s;
+    }
+    .lang-switcher a:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+    .lang-switcher span.current {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue);
+    }
+
+    /* ── ARTICLE BODY ── */
+    .article-body { font-size: 1.05rem; line-height: 1.8; }
+    .article-body h2 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      margin: 2.2rem 0 0.8rem;
+      color: var(--text);
+    }
+    .article-body h3, .article-body h4 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 1.8rem 0 0.6rem;
+      color: var(--text);
+    }
+    .article-body p { margin-bottom: 1.1rem; }
+    .article-body ul, .article-body ol {
+      margin: 0.8rem 0 1.2rem 1.5rem;
+    }
+    .article-body li { margin-bottom: 0.4rem; }
+    .article-body strong { font-weight: 600; }
+    .article-body blockquote {
+      border-left: 3px solid var(--blue);
+      padding: 0.8rem 1.2rem;
+      margin: 1.5rem 0;
+      background: var(--blue-lt);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-style: italic;
+    }
+    .article-body a { color: var(--blue); }
+
+    /* ── MID-ARTICLE CTA ── */
+    .inline-cta {
+      background: var(--blue-lt);
+      border: 1.5px solid #c5d5ee;
+      border-radius: var(--radius);
+      padding: 1.4rem 1.6rem;
+      margin: 2.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+    .inline-cta-icon { font-size: 2rem; flex-shrink: 0; }
+    .inline-cta-text { flex: 1; }
+    .inline-cta-text strong { display: block; font-size: 1rem; font-weight: 600; margin-bottom: 0.2rem; }
+    .inline-cta-text span { font-size: 0.88rem; color: var(--muted); }
+    .inline-cta-btn {
+      background: var(--blue);
+      color: #fff !important;
+      font-family: var(--font);
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background 0.15s;
+    }
+    .inline-cta-btn:hover { background: var(--blue-dk); }
+
+    /* ── SIDEBAR ── */
+    .article-sidebar { position: sticky; top: 80px; }
+    .sidebar-card {
+      background: var(--blue);
+      color: #fff;
+      border-radius: 1.2rem;
+      padding: 1.8rem 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+    .sidebar-card-flag { font-size: 2.5rem; margin-bottom: 0.8rem; }
+    .sidebar-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+    .sidebar-card p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 1.2rem;
+      line-height: 1.5;
+    }
+    .sidebar-card ul {
+      list-style: none;
+      margin: 0 0 1.4rem;
+      padding: 0;
+    }
+    .sidebar-card li {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.9);
+      padding: 0.35rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .sidebar-card li::before { content: "✓"; font-weight: 700; color: #7dd3fc; }
+    .sidebar-cta-btn {
+      display: block;
+      background: #fff;
+      color: var(--blue);
+      text-align: center;
+      padding: 0.75rem 1rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .sidebar-cta-btn:hover { opacity: 0.92; }
+
+    .sidebar-free {
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.4rem;
+      text-align: center;
+    }
+    .sidebar-free p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+    .sidebar-free a {
+      color: var(--blue);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+    .sidebar-free a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.7);
+      padding: 1.8rem 1.5rem;
+      font-size: 0.85rem;
+    }
+    .footer-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+    }
+    .footer-links a:hover { color: #fff; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .article-outer {
+        grid-template-columns: 1fr;
+      }
+      .article-sidebar {
+        position: static;
+        order: -1;
+      }
+      .sidebar-card { padding: 1.4rem; }
+      .inline-cta { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+    }
+
+    @media (max-width: 600px) {
+      .article-outer { padding: 1.5rem 1rem 3rem; }
+      h1.article-title { font-size: 1.5rem; }
+      .breadcrumb-inner { font-size: 0.78rem; }
+    }
+
+    /* ── RTL (Arabic) ── */
+    [dir="rtl"] .cl-nav { flex-direction: row-reverse; }
+    [dir="rtl"] .article-body ul, [dir="rtl"] .article-body ol { margin: 0.8rem 1.5rem 1.2rem 0; }
+    [dir="rtl"] .article-body blockquote { border-left: none; border-right: 3px solid var(--blue); border-radius: var(--radius) 0 0 var(--radius); }
+    [dir="rtl"] .sidebar-card li { flex-direction: row-reverse; }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="cl-header">
+  <div class="cl-header-inner">
+    <a href="/" class="cl-logo">
+      <img src="/assets/images/fi.svg" alt="FI" />
+      <span>Kansalaisuuskoe.com</span>
+    </a>
+    <nav class="cl-nav">
+      <a href="/free-test/">Free test</a>
+      <a href="/articles/">Articles</a>
+      <a href="/contact/">Contact</a>
+      <a href="https://civiclearn.com/kansalaisuuskoe/login">Log in</a>
+    </nav>
+    <div class="cl-right">
+      <div class="cl-powered">powered by <span>CivicLearn</span></div>
+      <a href="https://civiclearn.com/kansalaisuuskoe/checkout" class="cl-btn">Start training</a>
+    </div>
+    <button class="cl-hamburger" id="hamburgerBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="cl-mobile-menu" id="mobileMenu">
+  <a href="/free-test/">Free test</a>
+  <a href="/articles/">Articles</a>
+  <a href="/contact/">Contact</a>
+  <a href="https://civiclearn.com/kansalaisuuskoe/login">Log in</a>
+  <a href="https://civiclearn.com/kansalaisuuskoe/checkout" class="cl-btn">Start training</a>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/articles/">Articles</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Aalto University: Innovation in Design, Technology, and Busi…</span>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="article-outer">
+
+  <!-- ARTICLE -->
+  <article>
+    <header class="article-header">
+      <div class="article-meta">
+        <span class="article-tag">Finland</span>
+        <span class="article-date">14 January 2025</span>
+        <span class="article-reading-time">6 min read</span>
+      </div>
+      <h1 class="article-title">Aalto University: Innovation in Design, Technology, and Business</h1>
+
+      <!-- LANGUAGE SWITCHER -->
+      <div class="lang-switcher">
+        <span class="current">🇬🇧 In English</span>
+      </div>
+    </header>
+
+    <div class="article-body">
+      Aalto University stands as one of Finland’s leading institutions for higher education and research, recognized globally for its focus on design, technology, and business. Established through the merger of three prestigious Finnish institutions, Aalto University has become a hub for innovation, creativity, and interdisciplinary collaboration. For those studying for the <strong>Finnish citizenship test</strong>, understanding Aalto University’s role offers insight into Finland’s commitment to fostering innovation, education, and economic growth.
+<h4>Origins of Aalto University</h4>
+Aalto University was founded in 2010 by merging three established institutions: the Helsinki University of Technology, the Helsinki School of Economics, and the University of Art and Design Helsinki. Named after the renowned Finnish architect Alvar Aalto, the university was created with the goal of combining expertise in technology, business, and art to drive research, innovation, and entrepreneurship. The university’s interdisciplinary approach reflects Finland’s vision for modern education, where creativity and collaboration meet practical, real-world challenges.
+
+Today, Aalto University is situated in Otaniemi, Espoo, near Helsinki, in a purpose-built campus designed to encourage interaction and collaboration among students and faculty. This vibrant campus is home to diverse research facilities, creative spaces, and entrepreneurial initiatives, creating an ideal environment for pioneering work in multiple fields.
+<h4>Key Focus Areas: Design, Technology, and Business</h4>
+Aalto University’s mission centers on integrating design, technology, and business to develop solutions for global challenges. This interdisciplinary focus has helped Aalto establish a reputation as one of Europe’s top universities for innovation and entrepreneurship.
+<ol>
+ 	<li><strong>Design</strong>:
+<ul>
+ 	<li>Aalto University’s Department of Design is internationally recognized, offering programs in areas like industrial design, visual communication, and service design. Known for blending traditional Scandinavian aesthetics with modern functionality, Aalto’s design programs attract students and researchers interested in developing sustainable, user-centered solutions.</li>
+ 	<li>Aalto students and alumni have made significant contributions to Finnish and global design, with innovations in furniture, digital interfaces, sustainable packaging, and urban design. The university’s emphasis on sustainability and usability reflects Finland’s dedication to environmentally conscious design practices.</li>
+</ul>
+</li>
+ 	<li><strong>Technology</strong>:
+<ul>
+ 	<li>The School of Engineering and the School of Electrical Engineering at Aalto are at the forefront of technological innovation. Research areas include artificial intelligence, data science, renewable energy, robotics, and environmental engineering. Aalto’s state-of-the-art labs and facilities allow students and researchers to work on groundbreaking projects, such as smart energy solutions, autonomous systems, and medical technology.</li>
+ 	<li>Aalto has a strong focus on sustainability in technology, with initiatives like the Clean Energy Research program and the Bioinnovation Center. These projects align with Finland’s goals of advancing green technology and sustainable resource management, contributing to global solutions for energy and environmental challenges.</li>
+</ul>
+</li>
+ 	<li><strong>Business</strong>:
+<ul>
+ 	<li>Aalto’s School of Business is Finland’s oldest business school and one of the top-ranked business schools in Europe. It offers programs in entrepreneurship, finance, economics, and marketing, with a focus on ethical business practices, sustainability, and social impact. The School of Business has strong ties with the Finnish corporate sector, offering students opportunities for internships, networking, and collaboration with leading companies.</li>
+ 	<li>The university’s entrepreneurial ecosystem, which includes the Aalto Ventures Program and the Startup Sauna, fosters a culture of innovation and risk-taking. These programs help students and researchers transform ideas into viable businesses, supporting Finland’s startup ecosystem and strengthening its role as a European leader in innovation.</li>
+</ul>
+</li>
+</ol>
+<h4>Aalto University and Entrepreneurship</h4>
+One of Aalto University’s defining features is its commitment to fostering entrepreneurship. The university has developed an ecosystem that supports students in turning their ideas into successful businesses, making it a cornerstone of Finland’s startup scene. Aalto’s Innovation Services, Design Factory, and Startup Sauna are just a few examples of the university’s resources dedicated to promoting innovation and enterprise.
+<ul>
+ 	<li><strong>Aalto Ventures Program (AVP)</strong>: The Aalto Ventures Program is an entrepreneurship education initiative that offers courses, mentorship, and resources to help students develop entrepreneurial skills. AVP encourages students to take risks, experiment, and learn from failure, creating an environment that mirrors the realities of the business world.</li>
+ 	<li><strong>Startup Sauna</strong>: Known as one of the most influential startup accelerators in the Nordics, Startup Sauna connects early-stage startups with mentors, investors, and industry experts. The program has helped launch numerous successful Finnish startups, strengthening Finland’s reputation as a startup-friendly country and contributing to economic growth.</li>
+ 	<li><strong>Design Factory</strong>: A collaborative workspace at Aalto University, the Design Factory brings together students, researchers, and industry professionals to work on multidisciplinary projects. The goal is to foster creativity, solve real-world problems, and encourage teamwork. Projects often focus on sustainable design, human-centered engineering, and practical solutions for industry challenges.</li>
+</ul>
+<h4>Research and Innovation at Aalto University</h4>
+Aalto University is renowned for its contributions to research, with a focus on solving complex global issues through collaboration and innovation. The university has numerous research centers dedicated to areas like renewable energy, digitalization, healthcare, and sustainable materials. Aalto is involved in various international research projects and collaborates with companies, research institutions, and governmental bodies to bring research results into practical application.
+
+Key research initiatives include:
+<ul>
+ 	<li><strong>Bioinnovation Center</strong>: Aalto’s Bioinnovation Center is a research hub dedicated to developing sustainable materials, such as bio-based plastics, textiles, and packaging. These materials aim to replace non-renewable resources, supporting Finland’s goals of advancing a circular economy and reducing environmental impact.</li>
+ 	<li><strong>Quantum Computing and AI</strong>: Aalto’s Quantum Technology Research Center and AI research initiatives are at the forefront of developing advanced computing technologies. These research areas hold potential for applications in fields such as healthcare, finance, and energy, contributing to Finland’s position as a leader in technology.</li>
+</ul>
+<h4>Aalto University’s Global Impact</h4>
+Aalto University has gained international recognition for its pioneering work in design, technology, and business, ranking highly among universities in Europe and globally. Its graduates are sought after in various industries, and the university has established partnerships with leading institutions around the world, contributing to global academic and scientific communities.
+
+Through events like the annual Slush conference—a major startup and tech event co-founded by Aalto students—Aalto University has helped solidify Finland’s role as a key player in the global innovation landscape. The university’s focus on socially and environmentally responsible innovation has made it a model for institutions worldwide, and its success continues to inspire new approaches to interdisciplinary education.
+<h4>Aalto University as a Symbol of Finnish Innovation and Values</h4>
+For Finland, Aalto University represents a commitment to education, innovation, and sustainable development. The university embodies the values of creativity, collaboration, and practical problem-solving that define Finnish culture. Its influence extends beyond academia, shaping Finland’s future workforce, driving economic growth, and contributing to Finland’s status as one of the world’s most innovative nations.
+
+For those preparing for the Finnish citizenship test, understanding Aalto University’s role in Finnish education and innovation provides a glimpse into Finland’s emphasis on knowledge, sustainability, and entrepreneurship. Aalto University is not only an academic institution but a testament to Finland’s pursuit of solutions that benefit society, the environment, and future generations.
+
+      <!-- MID-ARTICLE CTA -->
+      <div class="inline-cta">
+        <div class="inline-cta-icon">🇫🇮</div>
+        <div class="inline-cta-text">
+          <strong>Kansalaisuuskoe — preparing Finland's future citizens.</strong>
+          <span>800 practice questions, full simulations, trilingual support.</span>
+        </div>
+        <a href="https://civiclearn.com/kansalaisuuskoe/checkout" class="inline-cta-btn">Try it free →</a>
+      </div>
+
+      
+    </div>
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="article-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-card-flag">🇫🇮</div>
+      <h3>Citizenship test coming 2026</h3>
+      <p>Train with 800 exam-style questions across 5 topics — in Finnish, Swedish and English.</p>
+      <ul>
+        <li>800 questions — 5 topics</li>
+        <li>Finnish, Swedish & English</li>
+        <li>Full exam simulations</li>
+        <li>Track your progress</li>
+      </ul>
+      <a href="https://civiclearn.com/kansalaisuuskoe/checkout" class="sidebar-cta-btn">Start training →</a>
+    </div>
+
+    <div class="sidebar-free">
+      <p>Want to try first?</p>
+      <a href="/free-test/">Take the free test →</a>
+    </div>
+  </aside>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© <span id="footer-year"></span> Kansalaisuuskoe.com — osa CivicLearn-verkostoa.</div>
+    <div class="footer-links">
+      <a href="/free-test/">Free test</a>
+      <a href="/articles/">Articles</a>
+      <a href="/contact/">Contact</a>
+      <a href="/policies/">Policies</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("footer-year").textContent = new Date().getFullYear();
+  document.getElementById("hamburgerBtn").addEventListener("click", function() {
+    document.getElementById("mobileMenu").classList.toggle("open");
+  });
+</script>
+
+</body>
+</html>

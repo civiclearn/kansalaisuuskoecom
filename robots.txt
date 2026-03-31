@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kansalaisuuskoe.com/sitemap.xml

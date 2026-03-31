@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Artikkelit — Kansalaisuuskoe.com</title>
+  <meta name="description" content="Lue Suomen historiasta, kulttuurista, yhteiskunnasta ja tulevasta kansalaisuuskokeesta. Yli 30 artikkelia suomeksi.">
+  <link rel="canonical" href="https://kansalaisuuskoe.com/fi/artikkelit/">
+  <meta property="og:title" content="Artikkelit — Kansalaisuuskoe.com">
+  <meta property="og:url" content="https://kansalaisuuskoe.com/fi/artikkelit/">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/newhome.css">
+
+  <style>
+    /* ── lang switcher + header overrides ── */
+    .cl-lang { display:flex; align-items:center; gap:.3rem; flex-shrink:0; }
+    .cl-lang-btn { background:transparent; border:1.5px solid rgba(0,0,0,0.18); color:#444; font-family:inherit; font-size:.72rem; font-weight:700; padding:.22rem .55rem; border-radius:999px; cursor:pointer; transition:all .15s; line-height:1; text-decoration:none; }
+    .cl-lang-btn:hover { border-color:#7c3aed; color:#7c3aed; }
+    .cl-lang-btn.active { background:#7c3aed; color:#fff; border-color:#7c3aed; }
+    .cl-logo span { font-size:.92rem; }
+    .cl-nav a { font-size:.8rem !important; }
+    .cl-btn { font-size:.8rem !important; padding:.4rem .9rem !important; }
+    .cl-powered { font-size:.7rem !important; }
+
+    /* ── page layout ── */
+    .hub-hero {
+      background: linear-gradient(135deg,#efe8ff 0%,#dcc9ff 100%);
+      padding: 2.2rem 1.5rem 2.5rem;
+      text-align: center;
+    }
+    .hub-hero-inner { max-width: 680px; margin: 0 auto; }
+    .hub-kicker {
+      font-size:.75rem; font-weight:700; text-transform:uppercase;
+      letter-spacing:.1em; color:#7c3aed; margin-bottom:.6rem;
+    }
+    .hub-title {
+      font-size: clamp(1.6rem,3.5vw,2.2rem);
+      font-weight: 700; color:#1a1a1a; margin-bottom:.75rem; line-height:1.2;
+    }
+    .hub-lead { font-size:.97rem; color:#555; line-height:1.65; margin-bottom:1.6rem; }
+
+    /* topic filter */
+    .topic-filter {
+      display:flex; flex-wrap:wrap; gap:.5rem;
+      justify-content:center; padding:1.5rem 1.5rem 0;
+      max-width:1140px; margin:0 auto;
+    }
+    .topic-btn {
+      padding:.38rem 1rem; border-radius:999px; font-family:inherit;
+      font-size:.8rem; font-weight:600; border:2px solid #e0dce8;
+      background:#fff; color:#555; cursor:pointer; transition:all .2s;
+    }
+    .topic-btn:hover { border-color:var(--tc,#7c3aed); color:var(--tc,#7c3aed); }
+    .topic-btn.active { background:var(--tc,#7c3aed); color:#fff; border-color:var(--tc,#7c3aed); }
+    .topic-btn[data-topic="all"].active { background:#7c3aed; color:#fff; border-color:#7c3aed; }
+
+    /* main grid layout */
+    .hub-outer {
+      max-width:1140px; margin:0 auto;
+      padding:2rem 1.5rem 4rem;
+      display:grid; grid-template-columns:1fr 280px; gap:2.5rem; align-items:start;
+    }
+    @media(max-width:900px){ .hub-outer{ grid-template-columns:1fr; } .hub-sidebar{ position:static; } }
+    @media(max-width:600px){ .hub-outer{ padding:1.5rem 1rem 3rem; } .topic-filter{ padding:1rem 1rem 0; } }
+
+    /* count bar */
+    .hub-count { font-size:.85rem; color:#888; margin-bottom:1.2rem; }
+    .hub-count strong { color:#1a1a1a; }
+
+    /* article grid */
+    .article-grid {
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1rem;
+    }
+    .article-card {
+      background:#fff; border-radius:1rem; overflow:hidden;
+      border:1px solid rgba(0,0,0,0.06);
+      box-shadow:0 2px 8px rgba(0,0,0,0.04);
+      text-decoration:none; color:inherit; display:flex; flex-direction:column;
+      transition:transform .15s, box-shadow .15s;
+    }
+    .article-card:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,0,0,0.09); }
+    .article-card img {
+      width:100%; height:120px; object-fit:cover; display:block;
+      background:#f0ecfa;
+    }
+    .article-card-body { padding:.9rem 1rem 1rem; flex:1; display:flex; flex-direction:column; gap:.35rem; }
+    .article-card-title { font-size:.9rem; font-weight:600; color:#1a1a1a; line-height:1.35; }
+    .article-card-desc { font-size:.78rem; color:#666; line-height:1.5; flex:1; }
+    .article-card-cta { font-size:.78rem; font-weight:600; color:#7c3aed; margin-top:.2rem; }
+
+    .no-results { display:none; padding:3rem; text-align:center; color:#888; font-size:1rem; grid-column:1/-1; }
+
+    /* sidebar */
+    .hub-sidebar { position:sticky; top:80px; margin-top:2.4rem; }
+    .sidebar-cta-card {
+      background:linear-gradient(135deg,#efe8ff 0%,#dcc9ff 100%);
+      border-radius:1.2rem; padding:1.6rem 1.5rem; margin-bottom:1rem;
+    }
+    .sidebar-cta-card h3 { font-size:1rem; font-weight:700; color:#1a1a1a; margin-bottom:.4rem; }
+    .sidebar-cta-card p { font-size:.86rem; color:#555; margin-bottom:1.1rem; line-height:1.5; }
+    .sidebar-cta-btn {
+      display:block; background:#7c3aed; color:#fff; text-align:center;
+      padding:.7rem 1rem; border-radius:999px; font-weight:700; font-size:.9rem;
+      text-decoration:none; transition:background .2s;
+    }
+    .sidebar-cta-btn:hover { background:#5b21b6; }
+    .sidebar-free {
+      background:#fff; border:1px solid rgba(0,0,0,0.08); border-radius:.9rem;
+      padding:.9rem 1.1rem; text-align:center;
+    }
+    .sidebar-free a { color:#7c3aed; font-weight:600; font-size:.88rem; text-decoration:none; }
+    .sidebar-free a:hover { text-decoration:underline; }
+
+    /* topic legend in sidebar */
+    .sidebar-topics { margin-top:1rem; background:#fff; border:1px solid rgba(0,0,0,0.08); border-radius:.9rem; padding:1rem 1.1rem; }
+    .sidebar-topics h4 { font-size:.8rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:#888; margin-bottom:.7rem; }
+    .topic-legend-item { display:flex; align-items:center; gap:.55rem; margin-bottom:.5rem; font-size:.82rem; color:#444; cursor:pointer; }
+    .topic-legend-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+  </style>
+</head>
+<body>
+
+<header class="cl-header">
+  <div class="cl-header-inner">
+    <a href="/" class="cl-logo">
+      <img src="/assets/images/fi.svg" alt="FI" />
+      <span>Kansalaisuuskoe.com</span>
+    </a>
+    <nav class="cl-nav"><a href="/fi/ilmainen-testi/">Ilmainen testi</a><a href="/fi/artikkelit/" style="font-weight:700">Artikkelit</a><a href="/fi/yhteystiedot/">Yhteystiedot</a><a href="https://civiclearn.com/kansalaisuuskoe/login">Kirjaudu</a></nav>
+    <div class="cl-lang"><a href="/fi/artikkelit/" class="cl-lang-btn active">🇫🇮 FI</a><a href="/sv/artiklar/" class="cl-lang-btn">🇸🇪 SV</a><a href="/articles/" class="cl-lang-btn">🇬🇧 EN</a></div>
+    <div class="cl-right">
+      <div class="cl-powered">powered by <span>CivicLearn</span></div>
+      <a href="https://civiclearn.com/kansalaisuuskoe/checkout" class="cl-btn">Aloita harjoittelu</a>
+    </div>
+  </div>
+</header>
+
+<div class="hub-hero">
+  <div class="hub-hero-inner">
+    <div class="hub-kicker">Tietopankki</div>
+    <h1 class="hub-title">Artikkeleita kansalaisuuskokeesta</h1>
+    <p class="hub-lead">Taustatietoa, opiskeluvinkkejä ja kaikki mitä tarvitset tietää Suomesta ja tulevasta kansalaisuuskokeesta.</p>
+  </div>
+</div>
+
+<div class="topic-filter" id="topicFilter">
+  <button class="topic-btn active" data-topic="all">Kaikki aiheet</button><button class="topic-btn" data-topic="rights" style="--tc:#003580">Oikeudet ja demokratia</button><button class="topic-btn" data-topic="history" style="--tc:#14532d">Suomen historia</button><button class="topic-btn" data-topic="culture" style="--tc:#92400e">Kulttuuri ja yhteiskunta</button><button class="topic-btn" data-topic="nature" style="--tc:#0f766e">Luonto ja talous</button><button class="topic-btn" data-topic="citizenship" style="--tc:#5b21b6">Kansalaisuus</button>
+</div>
+
+<div class="hub-outer">
+  <main>
+    <p class="hub-count"><strong id="visibleCount">—</strong> artikkelia</p>
+    <div class="article-grid" id="articleGrid">
+      <p class="no-results" id="noResults">Artikkeleita ei löytynyt.</p>
+    </div>
+  </main>
+
+  <aside class="hub-sidebar">
+    <div class="sidebar-cta-card">
+      <h3>Valmistaudutko kokeeseen?</h3>
+      <p>Harjoittele 800 kysymyksellä viideltä aihealueelta.</p>
+      <a href="https://civiclearn.com/kansalaisuuskoe/checkout" class="sidebar-cta-btn">Aloita harjoittelu →</a>
+    </div>
+    <div class="sidebar-free">
+      <a href="/fi/ilmainen-testi/">Kokeile ensin ilmaiseksi →</a>
+    </div>
+    <div class="sidebar-topics">
+      <h4>Topics</h4>
+      <div class="topic-legend-item" data-legend="rights"><span class="topic-legend-dot" style="background:#003580"></span>Oikeudet ja demokratia</div><div class="topic-legend-item" data-legend="history"><span class="topic-legend-dot" style="background:#14532d"></span>Suomen historia</div><div class="topic-legend-item" data-legend="culture"><span class="topic-legend-dot" style="background:#92400e"></span>Kulttuuri ja yhteiskunta</div><div class="topic-legend-item" data-legend="nature"><span class="topic-legend-dot" style="background:#0f766e"></span>Luonto ja talous</div><div class="topic-legend-item" data-legend="citizenship"><span class="topic-legend-dot" style="background:#5b21b6"></span>Kansalaisuus</div>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© <span id="footer-year"></span> Kansalaisuuskoe.com — osa CivicLearn-verkostoa.</div>
+    <div class="footer-links"><a href="/fi/ilmainen-testi/">Ilmainen testi</a><a href="/fi/artikkelit/">Artikkelit</a><a href="/fi/yhteystiedot/">Yhteystiedot</a><a href="/fi/ehdot/">Ehdot</a></div>
+  </div>
+</footer>
+
+<script>
+(async function(){
+  const grid        = document.getElementById('articleGrid');
+  const searchInput = document.getElementById('searchInput');
+  const counter     = document.getElementById('visibleCount');
+  const noRes       = document.getElementById('noResults');
+  const topicBtns   = document.querySelectorAll('.topic-btn');
+  const legendItems = document.querySelectorAll('.topic-legend-item');
+
+  let articles = [], activeTopic = 'all', activeSearch = '';
+
+  try {
+    articles = await (await fetch('/fi/artikkelit/articles.json')).json();
+  } catch(e) { return; }
+
+  // Derive topic from image path
+  function topicOf(a) {
+    const m = a.image.match(/topic-([a-z]+)\.svg/);
+    return m ? m[1] : 'other';
+  }
+
+  function render() {
+    const q = activeSearch.toLowerCase();
+    const filtered = articles.filter(a => {
+      const matchTopic  = activeTopic === 'all' || topicOf(a) === activeTopic;
+      const matchSearch = !q || a.title.toLowerCase().includes(q) || a.desc.toLowerCase().includes(q);
+      return matchTopic && matchSearch;
+    });
+
+    counter.textContent = filtered.length;
+    noRes.style.display = filtered.length ? 'none' : 'block';
+
+    // Remove old cards (keep noResults node)
+    Array.from(grid.children).forEach(c => { if(c.id !== 'noResults') c.remove(); });
+
+    filtered.forEach(a => {
+      const card = document.createElement('a');
+      card.href = a.url;
+      card.className = 'article-card';
+      card.innerHTML =
+        '<img src="' + a.image + '" alt="' + a.title + '" loading="lazy">'
+        + '<div class="article-card-body">'
+        + '<div class="article-card-title">' + a.title + '</div>'
+        + '<div class="article-card-desc">' + a.desc + '</div>'
+        + '<div class="article-card-cta">Lue →</div>'
+        + '</div>';
+      grid.appendChild(card);
+    });
+  }
+
+  // topic filter
+  topicBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeTopic = btn.dataset.topic;
+      topicBtns.forEach(b => b.classList.toggle('active', b.dataset.topic === activeTopic));
+      render();
+    });
+  });
+
+  // legend click = same as topic filter
+  legendItems.forEach(item => {
+    item.addEventListener('click', () => {
+      activeTopic = item.dataset.legend;
+      topicBtns.forEach(b => b.classList.toggle('active', b.dataset.topic === activeTopic));
+      render();
+    });
+  });
+
+  // search (input removed from UI but guard against null)
+  if (searchInput) searchInput.addEventListener('input', () => {
+    activeSearch = searchInput.value;
+    render();
+  });
+
+  render();
+})();
+
+document.getElementById('footer-year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

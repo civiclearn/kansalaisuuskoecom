@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 280">
+  <defs>
+    <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#92400e"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+  </defs>
+  <rect width="560" height="280" fill="url(#g3)"/>
+  <!-- Abstract flame / sauna steam circles -->
+  <circle cx="220" cy="150" r="55" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="280" cy="130" r="70" fill="rgba(255,255,255,0.10)"/>
+  <circle cx="340" cy="155" r="50" fill="rgba(255,255,255,0.07)"/>
+  <!-- Stars / cultural symbols -->
+  <circle cx="200" cy="100" r="4" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="280" cy="80"  r="5" fill="rgba(255,255,255,0.5)"/>
+  <circle cx="360" cy="95"  r="3" fill="rgba(255,255,255,0.35)"/>
+  <circle cx="240" cy="170" r="3" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="320" cy="165" r="4" fill="rgba(255,255,255,0.38)"/>
+  <circle cx="180" cy="145" r="2.5" fill="rgba(255,255,255,0.28)"/>
+  <circle cx="380" cy="140" r="3"   fill="rgba(255,255,255,0.3)"/>
+  <text x="280" y="238" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="rgba(255,255,255,0.7)" letter-spacing="2">CULTURE &amp; SOCIETY</text>
+</svg>

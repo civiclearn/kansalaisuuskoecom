@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 280">
+  <defs>
+    <linearGradient id="g5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5b21b6"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+  <rect width="560" height="280" fill="url(#g5)"/>
+  <!-- Abstract passport / document shape -->
+  <rect x="215" y="80" width="130" height="110" rx="8" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+  <!-- Lines inside doc -->
+  <rect x="232" y="102" width="60" height="5" rx="2" fill="rgba(255,255,255,0.3)"/>
+  <rect x="232" y="115" width="45" height="4" rx="2" fill="rgba(255,255,255,0.2)"/>
+  <rect x="232" y="128" width="55" height="4" rx="2" fill="rgba(255,255,255,0.2)"/>
+  <rect x="232" y="141" width="40" height="4" rx="2" fill="rgba(255,255,255,0.15)"/>
+  <!-- Star badge -->
+  <circle cx="310" cy="155" r="18" fill="rgba(255,255,255,0.18)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+  <text x="310" y="160" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.7)">★</text>
+  <text x="280" y="238" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="rgba(255,255,255,0.7)" letter-spacing="2">CITIZENSHIP</text>
+</svg>

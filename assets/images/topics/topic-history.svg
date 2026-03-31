@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 280">
+  <defs>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14532d"/>
+      <stop offset="100%" stop-color="#166534"/>
+    </linearGradient>
+  </defs>
+  <rect width="560" height="280" fill="url(#g2)"/>
+  <!-- Abstract pine trees -->
+  <polygon points="200,180 220,120 240,180" fill="rgba(255,255,255,0.15)"/>
+  <polygon points="230,185 255,110 280,185" fill="rgba(255,255,255,0.22)"/>
+  <polygon points="265,182 293,100 322,182" fill="rgba(255,255,255,0.30)"/>
+  <polygon points="305,184 328,118 350,184" fill="rgba(255,255,255,0.18)"/>
+  <polygon points="335,186 355,130 375,186" fill="rgba(255,255,255,0.13)"/>
+  <!-- Trunks -->
+  <rect x="218" y="180" width="5" height="18" fill="rgba(255,255,255,0.15)"/>
+  <rect x="252" y="185" width="6" height="18" fill="rgba(255,255,255,0.2)"/>
+  <rect x="290" y="182" width="7" height="18" fill="rgba(255,255,255,0.28)"/>
+  <rect x="326" y="184" width="5" height="18" fill="rgba(255,255,255,0.15)"/>
+  <!-- Ground -->
+  <rect x="140" y="197" width="280" height="5" rx="2" fill="rgba(255,255,255,0.2)"/>
+  <text x="280" y="238" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="rgba(255,255,255,0.7)" letter-spacing="2">FINNISH HISTORY</text>
+</svg>
