@@ -253,6 +253,7 @@
       <button class="cl-lang-btn active" data-lang="fi">🇫🇮 FI</button>
       <button class="cl-lang-btn"        data-lang="sv">🇸🇪 SV</button>
       <button class="cl-lang-btn"        data-lang="en">🇬🇧 EN</button>
+      <button class="cl-lang-btn"        data-lang="ru">🇷🇺 RU</button>
     </div>
 
     <div class="cl-right">
@@ -615,7 +616,8 @@ document.addEventListener("DOMContentLoaded", bindFaq);
   var I18N={
     fi:{u:'PÄIVÄÄ',u1:'PÄIVÄ',done:'Kansalaisuuskokeeseen liittyvä lainsäädäntö on <strong>astunut voimaan</strong>. <span class="status-pill">Voimassa</span>'},
     sv:{u:'DAGAR',u1:'DAG',done:'Lagstiftningen om medborgarskapsprovet har <strong>trätt i kraft</strong>. <span class="status-pill">Aktivt</span>'},
-    en:{u:'DAYS',u1:'DAY',done:'The citizenship test legislation has <strong>entered into force</strong>. <span class="status-pill">Active</span>'}
+    en:{u:'DAYS',u1:'DAY',done:'The citizenship test legislation has <strong>entered into force</strong>. <span class="status-pill">Active</span>'},
+    ru:{u:'ДНЕЙ',u1:'ДЕНЬ',done:'Законодательство об экзамене на гражданство <strong>вступило в силу</strong>. <span class="status-pill">Действует</span>'}
   };
   function daysUntil(d){return Math.max(0,Math.ceil((new Date(d+'T00:00:00')-new Date())/86400000));}
   window.updateCountdown=function(lang){
@@ -643,7 +645,10 @@ document.addEventListener("DOMContentLoaded", bindFaq);
         sub:'Engångsbetalning — livstids tillgång',g:'Engångsbetalning. Ingen prenumeration. Livstids tillgång.'},
     en:{solo:'Citizenship test',bundle:'Citizenship test + YKI',as:'€69',ab:'€99',
         sv:'€69 + €69 = €138 → you pay €99',cs:'Start now — €69',cb:'Start now — €99',
-        sub:'One-time payment — lifetime access',g:'One-time payment. No subscription. Lifetime access.'}
+        sub:'One-time payment — lifetime access',g:'One-time payment. No subscription. Lifetime access.'},
+    ru:{solo:'Экзамен на гражданство',bundle:'Экзамен + YKI',as:'€69',ab:'€99',
+        sv:'€69 + €69 = €138 → вы платите €99',cs:'Начать — €69',cb:'Начать — €99',
+        sub:'Единовременная оплата — доступ навсегда',g:'Единовременная оплата. Без подписки. Доступ навсегда.'}
   };
   var curPlan='solo',curLang='fi';
 
@@ -684,7 +689,7 @@ document.addEventListener("DOMContentLoaded", bindFaq);
 <!-- HOME ARTICLES -->
 <script>
 window.loadArticles=async function(lang){
-  var URLS={fi:'/fi/artikkelit/articles.json',sv:'/sv/artiklar/articles.json',en:'/articles/articles.json'};
+  var URLS={fi:'/fi/artikkelit/articles.json',sv:'/sv/artiklar/articles.json',en:'/articles/articles.json',ru:'/articles/articles.json'};
   var grid=document.getElementById('homeArticlesGrid');if(!grid)return;
   try{
     var all=await(await fetch(URLS[lang]||URLS.fi)).json();
@@ -824,6 +829,45 @@ en:{
   ftCopy:'part of the CivicLearn network',
   ftFT:'Free test',ftFTU:'/free-test/',ftA:'Articles',ftAU:'/articles/',
   ftC:'Contact',ftCU:'/contact/',ftP:'Policies',ftPU:'/policies/',
+},
+ru:{
+  htmlLang:'ru',
+  sLaw:'Новое законодательство об экзамене на гражданство вступает в силу <strong>в январе 2027 года</strong>. <span class="status-pill">Новое требование</span>',
+  sQ:'Тренируйтесь с вопросами по <strong>5 темам</strong> на основе официальной программы — на финском, шведском и английском.',
+  sQU:'ВОПРОСОВ',
+  hT1:'Сдайте экзамен на гражданство Финляндии',hT2:'и получите финский паспорт',
+  hS:'800 тренировочных вопросов по 5 темам и реалистичные симуляции экзамена.<br>Поддержка на трёх языках: FI/SV/EN. Начните подготовку уже сегодня.',
+  hP:'Начать подготовку',hSec:'Попробовать бесплатно',hSecU:'/free-test/',
+  hRW:'Отлично',hSS:'Тысячи кандидатов подготовились через сеть CivicLearn.',
+  nFT:'Бесплатный тест',nFTU:'/free-test/',nA:'Статьи',nAU:'/articles/',
+  nC:'Контакты',nCU:'/contact/',nL:'Войти',nCTA:'Начать подготовку',
+  fK:'Всё в одном месте',fT:'Эффективная подготовка к экзамену на гражданство',
+  fL:'Тренируйтесь с 800 вопросами, проверяйте себя на реалистичных симуляциях и отслеживайте прогресс по каждой теме.',
+  c1U:'/about-the-test/',c1T:'Об экзамене на гражданство',c1Tx:'Что включает экзамен, когда вступает в силу, кого касается и как к нему готовиться.',c1C:'Подробнее об экзамене',
+  c2U:'/free-test/',c2T:'Бесплатный пробный тест',c2Tx:'Проверьте свои знания с помощью 10 вопросов в формате реального экзамена — перед покупкой полного доступа.',c2C:'Пройти бесплатный тест',
+  c3T:'800 вопросов — 5 тем',c3Tx:'Занимайтесь в своём темпе с объяснениями на трёх языках, отслеживайте прогресс по темам.',c3C:'Начать подготовку',
+  qH:'Проверьте свои знания',qL:'10 вопросов о Финляндии — насколько хорошо вы знаете страну, гражданином которой хотите стать?',
+  prK:'Цены',prT:'Выберите подходящий вариант',prL:'Единовременная оплата — доступ навсегда. Без подписки.',
+  pb1:'Экзамен на гражданство',pb2:'Экзамен + YKI',pbSv:'Экономия €39',
+  pf:['800 тренировочных вопросов — 5 тем','Три языка: финский, шведский и английский','Симуляции экзамена: 25 вопросов, 45 мин, порог 80%','Быстрые тесты, карточки и отслеживание слабых мест','Панель прогресса в реальном времени по каждой теме','Работает на телефоне, планшете и компьютере','Мгновенная активация после оплаты','Обновляется при выходе официальных материалов — автоматически'],
+  pb_e:['+ Учебные материалы для языкового теста YKI (финский/шведский)','+ Доступ к обеим платформам с одним логином'],
+  faqK:'Часто задаваемые вопросы',faqT:'FAQ — Экзамен на гражданство',
+  faqs:[
+    {q:'Когда экзамен на гражданство станет обязательным?',a:'Президент Финляндии подписал поправки к Закону о гражданстве 16 июня 2026 года. Экзамен становится обязательным с 1 января 2027 года. Официальные учебные материалы ещё не опубликованы, но темы уже утверждены — начинайте готовиться прямо сейчас.'},
+    {q:'Это подписка?',a:'Нет. Единовременный платёж €69 даёт неограниченный доступ ко всем материалам без какой-либо подписки.'},
+    {q:'Кого касается экзамен на гражданство?',a:'Требование распространяется на соискателей гражданства в возрасте 18–64 лет. Освобождение предоставляется лицам с финским аттестатом зрелости или дипломом финского вуза.'},
+    {q:'Ваши тренировочные вопросы — это официальные вопросы экзамена?',a:'Нет. Наши вопросы составлены на основе утверждённых тем и справочных материалов Migri. Официальная база вопросов не публикуется — Migri заказывает экзамен у университета, и реальные вопросы остаются конфиденциальными, как и в тесте YKI. Когда официальные учебные материалы будут опубликованы, мы пересмотрим и при необходимости обновим наш банк вопросов. Все действующие пользователи получат обновления автоматически и бесплатно.'},
+    {q:'На каком языке проводится официальный экзамен?',a:'Официальный экзамен проводится на финском или шведском языке. На платформе CivicLearn все 800 вопросов доступны на трёх языках, чтобы вы могли учиться на удобном для вас языке.'},
+    {q:'Что входит в пакет за €99?',a:'Пакет включает подготовку к экзамену на гражданство (€69) и к языковому тесту YKI (€69) — итого €99, экономия €39.'},
+    {q:'Я только что оплатил. Что дальше?',a:'После оплаты вы сразу создаёте пароль. Вас перенаправят на страницу входа — введите email и новый пароль, и вы немедленно получите доступ к своему личному учебному кабинету.'},
+    {q:'Можно ли пользоваться платформой на телефоне или планшете?',a:'Да. Платформа доступна с любого устройства с подключением к интернету.'},
+  ],
+  aK:'Полезные статьи',aT:'Статьи об экзамене на гражданство',aL:'Справочная информация, советы по подготовке и всё, что нужно знать о новых требованиях к гражданству Финляндии.',
+  aM:'Все статьи →',aMU:'/articles/',
+  compT:'Совместимо со всеми устройствами и современными браузерами',
+  ftCopy:'часть сети CivicLearn',
+  ftFT:'Бесплатный тест',ftFTU:'/free-test/',ftA:'Статьи',ftAU:'/articles/',
+  ftC:'Контакты',ftCU:'/contact/',ftP:'Условия',ftPU:'/policies/',
 }};
 
 function si(id,h){var e=document.getElementById(id);if(e)e.innerHTML=h;}
