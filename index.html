@@ -555,11 +555,11 @@
      style="display:flex;align-items:center;gap:14px;max-width:820px;margin:0 auto 24px;padding:13px 22px;background:#fff;border:1px solid #e5e1da;border-left:3px solid #7c3aed;border-radius:12px;text-decoration:none;color:#1d2230;text-align:left;transition:border-color .15s,box-shadow .15s;"
      onmouseover="this.style.borderColor='#7c3aed';this.style.boxShadow='0 4px 16px rgba(124,58,237,.12)'"
      onmouseout="this.style.borderColor='#e5e1da';this.style.borderLeftColor='#7c3aed';this.style.boxShadow='none'">
-    <span style="flex:0 0 auto;background:#f5f0ff;color:#7c3aed;font-weight:700;font-size:.7rem;letter-spacing:.02em;padding:5px 10px;border-radius:6px;white-space:nowrap;">PASSIVERTAILU</span>
+    <span id="prsPill" style="flex:0 0 auto;background:#f5f0ff;color:#7c3aed;font-weight:700;font-size:.7rem;letter-spacing:.02em;padding:5px 10px;border-radius:6px;white-space:nowrap;">PASSIVERTAILU</span>
     <span style="flex:1 1 auto;min-width:0;font-size:.86rem;line-height:1.45;color:#555;text-align:left;">
-      <strong style="color:#1a1a2e;">Suomen passi on yksi maailman vahvimmista.</strong>
+      <strong id="prsText" style="color:#1a1a2e;">Suomen passi on yksi maailman vahvimmista.</strong>
     </span>
-    <span style="flex:0 0 auto;color:#7c3aed;font-weight:600;font-size:.84rem;white-space:nowrap;">Katso sijoitus &rarr;</span>
+    <span id="prsGo" style="flex:0 0 auto;color:#7c3aed;font-weight:600;font-size:.84rem;white-space:nowrap;">Katso sijoitus &rarr;</span>
   </a>
 
   <div class="home-articles-grid" id="homeArticlesGrid"></div>
@@ -760,6 +760,7 @@ fi:{
   ],
   aK:'Lisää luettavaa',aT:'Artikkeleita kansalaisuuskokeesta',aL:'Taustatietoa, opiskeluvinkkejä ja kaikki mitä sinun tulee tietää Suomen uusista kansalaisuusvaatimuksista.',
   aM:'Katso kaikki artikkelit →',aMU:'/fi/artikkelit/',
+  prsPill:'PASSIVERTAILU',prsText:'Suomen passi on yksi maailman vahvimmista.',prsGo:'Katso sijoitus →',
   compT:'Yhteensopiva kaikkien laitteiden ja modernien selainten kanssa',
   ftCopy:'osa CivicLearn-verkostoa',
   ftFT:'Ilmainen testi',ftFTU:'/fi/ilmainen-testi/',ftA:'Artikkelit',ftAU:'/fi/artikkelit/',
@@ -799,6 +800,7 @@ sv:{
   ],
   aK:'Mer att läsa',aT:'Artiklar om medborgarskapsprovet',aL:'Bakgrund, studietips och allt du behöver veta om de nya finska medborgarskapskraven.',
   aM:'Se alla artiklar →',aMU:'/sv/artiklar/',
+  prsPill:'PASSRANKNING',prsText:'Det finska passet är ett av världens starkaste.',prsGo:'Se placeringen →',
   compT:'Kompatibel med alla enheter och moderna webbläsare',
   ftCopy:'del av CivicLearn-nätverket',
   ftFT:'Gratis test',ftFTU:'/sv/gratis-test/',ftA:'Artiklar',ftAU:'/sv/artiklar/',
@@ -838,6 +840,7 @@ en:{
   ],
   aK:'More reading',aT:'Articles about the citizenship test',aL:"Background, study tips and everything you need to know about Finland's new citizenship requirements.",
   aM:'See all articles →',aMU:'/articles/',
+  prsPill:'PASSPORT RANKING',prsText:'The Finnish passport is one of the strongest in the world.',prsGo:'See where it ranks →',
   compT:'Compatible with all devices and modern browsers',
   ftCopy:'part of the CivicLearn network',
   ftFT:'Free test',ftFTU:'/free-test/',ftA:'Articles',ftAU:'/articles/',
@@ -877,6 +880,7 @@ ru:{
   ],
   aK:'Полезные статьи',aT:'Статьи об экзамене на гражданство',aL:'Справочная информация, советы по подготовке и всё, что нужно знать о новых требованиях к гражданству Финляндии.',
   aM:'Все статьи →',aMU:'/articles/',
+  prsPill:'РЕЙТИНГ ПАСПОРТОВ',prsText:'Финский паспорт — один из сильнейших в мире.',prsGo:'Посмотреть место →',
   compT:'Совместимо со всеми устройствами и современными браузерами',
   ftCopy:'часть сети CivicLearn',
   ftFT:'Бесплатный тест',ftFTU:'/ru/besplatny-test/',ftA:'Статьи',ftAU:'/articles/',
@@ -947,6 +951,9 @@ function applyLang(lang){
   st('artKicker',c.aK); st('artTitle',c.aT); st('artLead',c.aL);
   si('artMore',c.aM); sh('artMore',c.aMU);
   window.loadArticles(lang);
+
+  // passport ranking strip
+  st('prsPill',c.prsPill); st('prsText',c.prsText); st('prsGo',c.prsGo);
 
   // compat + footer
   st('compatTitle',c.compT);
