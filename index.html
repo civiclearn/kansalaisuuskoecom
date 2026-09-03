@@ -253,6 +253,7 @@
       <button class="cl-lang-btn active" data-lang="fi">🇫🇮 FI</button>
       <button class="cl-lang-btn"        data-lang="sv">🇸🇪 SV</button>
       <button class="cl-lang-btn"        data-lang="en">🇬🇧 EN</button>
+      <button class="cl-lang-btn"        data-lang="ru">🇷🇺 RU</button>
     </div>
 
     <div class="cl-right">
@@ -473,6 +474,7 @@
       <li id="pf5">Reaaliaikainen edistymiskojelauta aihealueittain</li>
       <li id="pf6">Toimii puhelimella, tabletilla ja tietokoneella</li>
       <li id="pf7">Välitön aktivointi maksun jälkeen</li>
+      <li id="pf8x">Kysymyspankki päivitetään virallisten materiaalien mukaan — automaattisesti</li>
       <li class="bundle-extra" id="pf8">+ YKI-kielikoe harjoitusmateriaali (suomi/ruotsi)</li>
       <li class="bundle-extra" id="pf9">+ Pääsy molempiin alustoihin samoilla tunnuksilla</li>
     </ul>
@@ -501,7 +503,7 @@
   <div id="faqList">
     <div class="faq-item">
       <div class="faq-question"><span>Milloin kansalaisuuskoe tulee pakolliseksi?</span></div>
-      <div class="faq-answer"><p>Lainsäädäntö on tarkoitus saattaa voimaan tammikuussa 2027. Eduskunnan käsittely ajoittuu keväälle 2026. Suosittelemme aloittamaan harjoittelun jo nyt — virallinen materiaali ei ole vielä julkaistu, mutta aihepiirit on vahvistettu.</p></div>
+      <div class="faq-answer"><p>Tasavallan presidentti vahvisti kansalaisuuslain muutokset 16.6.2026. Koe tulee pakolliseksi 1.1.2027 alkaen. Virallista oppimateriaalia ei ole vielä julkaistu, mutta aihealueet on vahvistettu — aloita harjoittelu jo nyt.</p></div>
     </div>
     <div class="faq-item">
       <div class="faq-question"><span>Onko tämä tilaus?</span></div>
@@ -513,7 +515,7 @@
     </div>
     <div class="faq-item">
       <div class="faq-question"><span>Ovatko harjoituskysymyksenne virallisia koekysymyksiä?</span></div>
-      <div class="faq-answer"><p>Eivät. Virallista koetta ei ole vielä julkaistu. Kysymyksemme perustuvat vahvistettuihin aihealueisiin ja Migrin taustamateriaaliin. Meillä ei ole yhteyttä Suomen valtioon.</p></div>
+      <div class="faq-answer"><p>Eivät. Kysymyksemme perustuvat vahvistettuihin aihealueisiin ja Migrin taustamateriaaliin. Virallista koepankkia ei julkaista — Migri tilaa kokeen yliopistolta, ja kysymykset pysyvät salaisina, aivan kuten YKI-kokeessa. Kun virallinen oppimateriaali julkaistaan, tarkistamme kysymyspankkimme ja päivitämme sen tarvittaessa. Kaikki olemassa olevat käyttäjät saavat päivitykset automaattisesti — ilman lisämaksua.</p></div>
     </div>
     <div class="faq-item">
       <div class="faq-question"><span>Millä kielellä virallinen koe tehdään?</span></div>
@@ -546,6 +548,19 @@
       Suomen uusista kansalaisuusvaatimuksista.
     </p>
   </div>
+
+  <!-- PASSPORT RANKING STRIP — Lisää luettavaa (further-reading pointer → ranking page).
+       NOTE: static FI copy; NOT yet wired into the C{} i18n dictionary, so it stays Finnish on SV/EN/RU. -->
+  <a href="https://civiclearn.com/passport-ranking"
+     style="display:flex;align-items:center;gap:14px;max-width:820px;margin:0 auto 24px;padding:13px 22px;background:#fff;border:1px solid #e5e1da;border-left:3px solid #7c3aed;border-radius:12px;text-decoration:none;color:#1d2230;text-align:left;transition:border-color .15s,box-shadow .15s;"
+     onmouseover="this.style.borderColor='#7c3aed';this.style.boxShadow='0 4px 16px rgba(124,58,237,.12)'"
+     onmouseout="this.style.borderColor='#e5e1da';this.style.borderLeftColor='#7c3aed';this.style.boxShadow='none'">
+    <span id="prsPill" style="flex:0 0 auto;background:#f5f0ff;color:#7c3aed;font-weight:700;font-size:.7rem;letter-spacing:.02em;padding:5px 10px;border-radius:6px;white-space:nowrap;">PASSIVERTAILU</span>
+    <span style="flex:1 1 auto;min-width:0;font-size:.86rem;line-height:1.45;color:#555;text-align:left;">
+      <strong id="prsText" style="color:#1a1a2e;">Suomen passi on yksi maailman vahvimmista.</strong>
+    </span>
+    <span id="prsGo" style="flex:0 0 auto;color:#7c3aed;font-weight:600;font-size:.84rem;white-space:nowrap;">Katso sijoitus &rarr;</span>
+  </a>
 
   <div class="home-articles-grid" id="homeArticlesGrid"></div>
 
@@ -614,7 +629,8 @@ document.addEventListener("DOMContentLoaded", bindFaq);
   var I18N={
     fi:{u:'PÄIVÄÄ',u1:'PÄIVÄ',done:'Kansalaisuuskokeeseen liittyvä lainsäädäntö on <strong>astunut voimaan</strong>. <span class="status-pill">Voimassa</span>'},
     sv:{u:'DAGAR',u1:'DAG',done:'Lagstiftningen om medborgarskapsprovet har <strong>trätt i kraft</strong>. <span class="status-pill">Aktivt</span>'},
-    en:{u:'DAYS',u1:'DAY',done:'The citizenship test legislation has <strong>entered into force</strong>. <span class="status-pill">Active</span>'}
+    en:{u:'DAYS',u1:'DAY',done:'The citizenship test legislation has <strong>entered into force</strong>. <span class="status-pill">Active</span>'},
+    ru:{u:'ДНЕЙ',u1:'ДЕНЬ',done:'Законодательство об экзамене на гражданство <strong>вступило в силу</strong>. <span class="status-pill">Действует</span>'}
   };
   function daysUntil(d){return Math.max(0,Math.ceil((new Date(d+'T00:00:00')-new Date())/86400000));}
   window.updateCountdown=function(lang){
@@ -642,7 +658,10 @@ document.addEventListener("DOMContentLoaded", bindFaq);
         sub:'Engångsbetalning — livstids tillgång',g:'Engångsbetalning. Ingen prenumeration. Livstids tillgång.'},
     en:{solo:'Citizenship test',bundle:'Citizenship test + YKI',as:'€69',ab:'€99',
         sv:'€69 + €69 = €138 → you pay €99',cs:'Start now — €69',cb:'Start now — €99',
-        sub:'One-time payment — lifetime access',g:'One-time payment. No subscription. Lifetime access.'}
+        sub:'One-time payment — lifetime access',g:'One-time payment. No subscription. Lifetime access.'},
+    ru:{solo:'Экзамен на гражданство',bundle:'Экзамен + YKI',as:'€69',ab:'€99',
+        sv:'€69 + €69 = €138 → вы платите €99',cs:'Начать — €69',cb:'Начать — €99',
+        sub:'Единовременная оплата — доступ навсегда',g:'Единовременная оплата. Без подписки. Доступ навсегда.'}
   };
   var curPlan='solo',curLang='fi';
 
@@ -683,7 +702,7 @@ document.addEventListener("DOMContentLoaded", bindFaq);
 <!-- HOME ARTICLES -->
 <script>
 window.loadArticles=async function(lang){
-  var URLS={fi:'/fi/artikkelit/articles.json',sv:'/sv/artiklar/articles.json',en:'/articles/articles.json'};
+  var URLS={fi:'/fi/artikkelit/articles.json',sv:'/sv/artiklar/articles.json',en:'/articles/articles.json',ru:'/articles/articles.json'};
   var grid=document.getElementById('homeArticlesGrid');if(!grid)return;
   try{
     var all=await(await fetch(URLS[lang]||URLS.fi)).json();
@@ -726,14 +745,14 @@ fi:{
   qH:'Testaa tietosi',qL:'10 kysymystä Suomesta — kuinka hyvin tunnet maan johon haluat kansalaiseksi?',
   prK:'Hinnoittelu',prT:'Valitse sinulle sopiva vaihtoehto',prL:'Kertamaksu — elinikäinen käyttöoikeus. Ei tilauksia.',
   pb1:'Kansalaisuuskoe',pb2:'Kansalaisuuskoe + YKI',pbSv:'Säästä €39',
-  pf:['800 harjoituskysymystä — 5 aihealuetta','Kolmikielinen: suomi, ruotsi ja englanti','Koesimulaatiot: 25 kysymystä, 45 min, 80 % läpäisyraja','Pikalliset testit, muistikortit ja heikkojen alueiden seuranta','Reaaliaikainen edistymiskojelauta aihealueittain','Toimii puhelimella, tabletilla ja tietokoneella','Välitön aktivointi maksun jälkeen'],
+  pf:['800 harjoituskysymystä — 5 aihealuetta','Kolmikielinen: suomi, ruotsi ja englanti','Koesimulaatiot: 25 kysymystä, 45 min, 80 % läpäisyraja','Pikalliset testit, muistikortit ja heikkojen alueiden seuranta','Reaaliaikainen edistymiskojelauta aihealueittain','Toimii puhelimella, tabletilla ja tietokoneella','Välitön aktivointi maksun jälkeen','Päivitetään virallisten materiaalien mukaan — automaattisesti'],
   pb_e:['+ YKI-kielikoe harjoitusmateriaali (suomi/ruotsi)','+ Pääsy molempiin alustoihin samoilla tunnuksilla'],
   faqK:'Usein kysyttyä',faqT:'FAQ — Kansalaisuuskoe',
   faqs:[
-    {q:'Milloin kansalaisuuskoe tulee pakolliseksi?',a:'Lainsäädäntö on tarkoitus saattaa voimaan tammikuussa 2027. Eduskunnan käsittely ajoittuu keväälle 2026. Suosittelemme aloittamaan harjoittelun jo nyt — virallinen materiaali ei ole vielä julkaistu, mutta aihepiirit on vahvistettu.'},
+    {q:'Milloin kansalaisuuskoe tulee pakolliseksi?',a:'Tasavallan presidentti vahvisti kansalaisuuslain muutokset 16.6.2026. Koe tulee pakolliseksi 1.1.2027 alkaen. Virallista oppimateriaalia ei ole vielä julkaistu, mutta aihealueet on vahvistettu — aloita harjoittelu jo nyt.'},
     {q:'Onko tämä tilaus?',a:'Ei. Kertamaksulla (€69) saat rajoittamattoman käyttöoikeuden kaikkeen sisältöön ilman tilausta.'},
     {q:'Ketä kansalaisuuskoe koskee?',a:'Vaatimus koskee 18–64-vuotiaita kansalaisuudenhakijoita. Vapautuksia myönnetään henkilöille, joilla on suomalainen ylioppilastutkinto tai korkeakoulututkinto.'},
-    {q:'Ovatko harjoituskysymyksenne virallisia koekysymyksiä?',a:'Eivät. Virallista koetta ei ole vielä julkaistu. Kysymyksemme perustuvat vahvistettuihin aihealueisiin ja Migrin taustamateriaaliin.'},
+    {q:'Ovatko harjoituskysymyksenne virallisia koekysymyksiä?',a:'Eivät. Kysymyksemme perustuvat vahvistettuihin aihealueisiin ja Migrin taustamateriaaliin. Virallista koepankkia ei julkaista — Migri tilaa kokeen yliopistolta, ja kysymykset pysyvät salaisina, aivan kuten YKI-kokeessa. Kun virallinen oppimateriaali julkaistaan, tarkistamme kysymyspankkimme ja päivitämme sen tarvittaessa. Kaikki olemassa olevat käyttäjät saavat päivitykset automaattisesti — ilman lisämaksua.'},
     {q:'Millä kielellä virallinen koe tehdään?',a:'Virallinen koe järjestetään suomeksi tai ruotsiksi. CivicLearn-alustalla kaikki 800 kysymystä ovat saatavilla kolmella kielellä.'},
     {q:'Mikä on €99-paketti?',a:'Yhdistelmäpaketti sisältää sekä kansalaisuuskoevalmennuksen (€69) että YKI-kielitestivalmennuksen (€69) — yhteensä €99 eli säästät €39.'},
     {q:'Olen juuri maksanut. Mitä tapahtuu nyt?',a:'Maksun jälkeen luot salasanan suoraan. Sinut ohjataan kirjautumissivulle ja saat välittömän pääsyn harjoittelualueeseesi.'},
@@ -741,6 +760,7 @@ fi:{
   ],
   aK:'Lisää luettavaa',aT:'Artikkeleita kansalaisuuskokeesta',aL:'Taustatietoa, opiskeluvinkkejä ja kaikki mitä sinun tulee tietää Suomen uusista kansalaisuusvaatimuksista.',
   aM:'Katso kaikki artikkelit →',aMU:'/fi/artikkelit/',
+  prsPill:'PASSIVERTAILU',prsText:'Suomen passi on yksi maailman vahvimmista.',prsGo:'Katso sijoitus →',
   compT:'Yhteensopiva kaikkien laitteiden ja modernien selainten kanssa',
   ftCopy:'osa CivicLearn-verkostoa',
   ftFT:'Ilmainen testi',ftFTU:'/fi/ilmainen-testi/',ftA:'Artikkelit',ftAU:'/fi/artikkelit/',
@@ -765,14 +785,14 @@ sv:{
   qH:'Testa dina kunskaper',qL:'10 frågor om Finland — hur väl känner du till det land där du vill bli medborgare?',
   prK:'Priser',prT:'Välj det alternativ som passar dig',prL:'Engångsbetalning — livstids tillgång. Ingen prenumeration.',
   pb1:'Medborgarskapsprovet',pb2:'Medborgarskapsprov + YKI',pbSv:'Spara €39',
-  pf:['800 övningsfrågor — 5 ämnesområden','Trespråkigt: finska, svenska och engelska','Provsimuleringar: 25 frågor, 45 min, 80 % godkäntgräns','Snabbtester, flashcards och uppföljning av svaga områden','Realtids-dashboard med framsteg per ämnesområde','Fungerar på mobil, surfplatta och dator','Omedelbar aktivering efter betalning'],
+  pf:['800 övningsfrågor — 5 ämnesområden','Trespråkigt: finska, svenska och engelska','Provsimuleringar: 25 frågor, 45 min, 80 % godkäntgräns','Snabbtester, flashcards och uppföljning av svaga områden','Realtids-dashboard med framsteg per ämnesområde','Fungerar på mobil, surfplatta och dator','Omedelbar aktivering efter betalning','Uppdateras enligt officiellt material — automatiskt'],
   pb_e:['+ YKI-språktest träningspaket (finska/svenska)','+ Tillgång till båda plattformarna med samma inloggning'],
   faqK:'Vanliga frågor',faqT:'FAQ — Medborgarskapsprovet',
   faqs:[
-    {q:'När blir medborgarskapsprovet obligatoriskt?',a:'Lagstiftningen är planerad att träda i kraft i januari 2027. Riksdagsbehandlingen sker våren 2026. Vi rekommenderar att du börjar träna redan nu.'},
+    {q:'När blir medborgarskapsprovet obligatoriskt?',a:'Republikkens president stadfäste lagändringarna den 16 juni 2026. Provet blir obligatoriskt från och med den 1 januari 2027. Det officiella läromedlet har ännu inte publicerats, men ämnesområdena är fastställda — börja träna redan nu.'},
     {q:'Är detta en prenumeration?',a:'Nej. En engångsbetalning på €69 ger dig obegränsad tillgång till allt innehåll, utan någon prenumeration.'},
     {q:'Vem berörs av medborgarskapsprovet?',a:'Kravet gäller medborgarskapssökande i åldern 18–64 år. Undantag medges för dem med finsk studentexamen eller högskoleexamen från en finsk läroanstalt.'},
-    {q:'Är era övningsfrågor officiella provfrågor?',a:'Nej. Det officiella provet har inte publicerats ännu. Våra frågor baseras på de fastställda ämnesområdena och bakgrundsmaterialet från Migri.'},
+    {q:'Är era övningsfrågor officiella provfrågor?',a:'Nej. Våra frågor baseras på de fastställda ämnesområdena och bakgrundsmaterialet från Migri. Någon officiell frågebank kommer inte att publiceras — Migri beställer provet från ett universitet och frågorna förblir konfidentiella, precis som i YKI-provet. När det officiella läromedlet publiceras granskar vi vår frågebank och uppdaterar den vid behov. Alla befintliga användare får uppdateringarna automatiskt — utan extra kostnad.'},
     {q:'På vilket språk genomförs det officiella provet?',a:'Det officiella provet genomförs på finska eller svenska. På CivicLearn-plattformen finns alla 800 frågor på tre språk.'},
     {q:'Vad är €99-paketet?',a:'Kombinationspaketet innehåller både medborgarskapsprovsträning (€69) och YKI-språkteststräning (€69) — totalt €99, vilket innebär att du sparar €39.'},
     {q:'Jag har just betalat. Vad händer nu?',a:'Efter betalningen skapar du ett lösenord direkt. Du omdirigeras sedan till inloggningsskärmen och får omedelbar tillgång.'},
@@ -780,6 +800,7 @@ sv:{
   ],
   aK:'Mer att läsa',aT:'Artiklar om medborgarskapsprovet',aL:'Bakgrund, studietips och allt du behöver veta om de nya finska medborgarskapskraven.',
   aM:'Se alla artiklar →',aMU:'/sv/artiklar/',
+  prsPill:'PASSRANKNING',prsText:'Det finska passet är ett av världens starkaste.',prsGo:'Se placeringen →',
   compT:'Kompatibel med alla enheter och moderna webbläsare',
   ftCopy:'del av CivicLearn-nätverket',
   ftFT:'Gratis test',ftFTU:'/sv/gratis-test/',ftA:'Artiklar',ftAU:'/sv/artiklar/',
@@ -804,14 +825,14 @@ en:{
   qH:'Test your knowledge',qL:'10 questions about Finland — how well do you know the country you want to become a citizen of?',
   prK:'Pricing',prT:'Choose the option that suits you',prL:'One-time payment — lifetime access. No subscriptions.',
   pb1:'Citizenship test',pb2:'Citizenship test + YKI',pbSv:'Save €39',
-  pf:['800 practice questions — 5 topics','Trilingual: Finnish, Swedish and English','Exam simulations: 25 questions, 45 min, 80% pass threshold','Quick tests, flashcards and weak-area tracking','Real-time progress dashboard per topic','Works on phone, tablet and computer','Instant activation after payment'],
+  pf:['800 practice questions — 5 topics','Trilingual: Finnish, Swedish and English','Exam simulations: 25 questions, 45 min, 80% pass threshold','Quick tests, flashcards and weak-area tracking','Real-time progress dashboard per topic','Works on phone, tablet and computer','Instant activation after payment','Updated when official materials are published — automatically'],
   pb_e:['+ YKI language test training material (Finnish/Swedish)','+ Access both platforms with the same login'],
   faqK:'FAQ',faqT:'FAQ — Citizenship test',
   faqs:[
-    {q:'When does the citizenship test become mandatory?',a:"The legislation is planned to enter into force in January 2027. Parliamentary hearings are scheduled for spring 2026. We recommend starting your preparation now."},
+    {q:'When does the citizenship test become mandatory?',a:"President Stubb signed the Nationality Act amendments into law on 16 June 2026. The test becomes mandatory from 1 January 2027. The official study material has not yet been published, but the topic areas are confirmed — start preparing now."},
     {q:'Is this a subscription?',a:'No. A one-time payment of €69 gives you unlimited access to all content, with no subscription.'},
     {q:'Who does the citizenship test apply to?',a:'The requirement applies to citizenship applicants aged 18–64. Exemptions are granted for those with a Finnish matriculation exam or a degree from a Finnish higher education institution.'},
-    {q:'Are your practice questions the official exam questions?',a:"No. The official test hasn't been published yet. Our questions are based on the confirmed topic areas and background material from Migri."},
+    {q:'Are your practice questions the official exam questions?',a:"No. Our questions are based on the confirmed topic areas and background material from Migri. There is no public question bank — Migri commissions the test from a university and the actual questions remain confidential, just like the YKI language test. When the official study material is published, we will review our question bank and update it where necessary. All existing users receive any updates automatically, at no extra cost."},
     {q:'What language is the official test in?',a:'The official test is conducted in Finnish or Swedish. On the CivicLearn platform, all 800 questions are available in three languages.'},
     {q:'What is the €99 bundle?',a:'The bundle includes both citizenship test training (€69) and YKI language test training (€69) — total €99, saving you €39.'},
     {q:"I've just paid. What happens now?",a:'After payment you create a password directly. You are redirected to the login screen and get immediate access to your personal practice area.'},
@@ -819,10 +840,51 @@ en:{
   ],
   aK:'More reading',aT:'Articles about the citizenship test',aL:"Background, study tips and everything you need to know about Finland's new citizenship requirements.",
   aM:'See all articles →',aMU:'/articles/',
+  prsPill:'PASSPORT RANKING',prsText:'The Finnish passport is one of the strongest in the world.',prsGo:'See where it ranks →',
   compT:'Compatible with all devices and modern browsers',
   ftCopy:'part of the CivicLearn network',
   ftFT:'Free test',ftFTU:'/free-test/',ftA:'Articles',ftAU:'/articles/',
   ftC:'Contact',ftCU:'/contact/',ftP:'Policies',ftPU:'/policies/',
+},
+ru:{
+  htmlLang:'ru',
+  sLaw:'Новое законодательство об экзамене на гражданство вступает в силу <strong>в январе 2027 года</strong>. <span class="status-pill">Новое требование</span>',
+  sQ:'Тренируйтесь с вопросами по <strong>5 темам</strong> на основе официальной программы — на финском, шведском и английском.',
+  sQU:'ВОПРОСОВ',
+  hT1:'Сдайте экзамен на гражданство Финляндии',hT2:'и получите финский паспорт',
+  hS:'800 тренировочных вопросов по 5 темам и реалистичные симуляции экзамена.<br>Поддержка на трёх языках: FI/SV/EN. Начните подготовку уже сегодня.',
+  hP:'Начать подготовку',hSec:'Попробовать бесплатно',hSecU:'/ru/besplatny-test/',
+  hRW:'Отлично',hSS:'Тысячи кандидатов подготовились через сеть CivicLearn.',
+  nFT:'Бесплатный тест',nFTU:'/ru/besplatny-test/',nA:'Статьи',nAU:'/articles/',
+  nC:'Контакты',nCU:'/contact/',nL:'Войти',nCTA:'Начать подготовку',
+  fK:'Всё в одном месте',fT:'Эффективная подготовка к экзамену на гражданство',
+  fL:'Тренируйтесь с 800 вопросами, проверяйте себя на реалистичных симуляциях и отслеживайте прогресс по каждой теме.',
+  c1U:'/ru/ob-ekzamene/',c1T:'Об экзамене на гражданство',c1Tx:'Что включает экзамен, когда вступает в силу, кого касается и как к нему готовиться.',c1C:'Подробнее об экзамене',
+  c2U:'/ru/besplatny-test/',c2T:'Бесплатный пробный тест',c2Tx:'Проверьте свои знания с помощью 10 вопросов в формате реального экзамена — перед покупкой полного доступа.',c2C:'Пройти бесплатный тест',
+  c3T:'800 вопросов — 5 тем',c3Tx:'Занимайтесь в своём темпе с объяснениями на трёх языках, отслеживайте прогресс по темам.',c3C:'Начать подготовку',
+  qH:'Проверьте свои знания',qL:'10 вопросов о Финляндии — насколько хорошо вы знаете страну, гражданином которой хотите стать?',
+  prK:'Цены',prT:'Выберите подходящий вариант',prL:'Единовременная оплата — доступ навсегда. Без подписки.',
+  pb1:'Экзамен на гражданство',pb2:'Экзамен + YKI',pbSv:'Экономия €39',
+  pf:['800 тренировочных вопросов — 5 тем','Три языка: финский, шведский и английский','Симуляции экзамена: 25 вопросов, 45 мин, порог 80%','Быстрые тесты, карточки и отслеживание слабых мест','Панель прогресса в реальном времени по каждой теме','Работает на телефоне, планшете и компьютере','Мгновенная активация после оплаты','Обновляется при выходе официальных материалов — автоматически'],
+  pb_e:['+ Учебные материалы для языкового теста YKI (финский/шведский)','+ Доступ к обеим платформам с одним логином'],
+  faqK:'Часто задаваемые вопросы',faqT:'FAQ — Экзамен на гражданство',
+  faqs:[
+    {q:'Когда экзамен на гражданство станет обязательным?',a:'Президент Финляндии подписал поправки к Закону о гражданстве 16 июня 2026 года. Экзамен становится обязательным с 1 января 2027 года. Официальные учебные материалы ещё не опубликованы, но темы уже утверждены — начинайте готовиться прямо сейчас.'},
+    {q:'Это подписка?',a:'Нет. Единовременный платёж €69 даёт неограниченный доступ ко всем материалам без какой-либо подписки.'},
+    {q:'Кого касается экзамен на гражданство?',a:'Требование распространяется на соискателей гражданства в возрасте 18–64 лет. Освобождение предоставляется лицам с финским аттестатом зрелости или дипломом финского вуза.'},
+    {q:'Ваши тренировочные вопросы — это официальные вопросы экзамена?',a:'Нет. Наши вопросы составлены на основе утверждённых тем и справочных материалов Migri. Официальная база вопросов не публикуется — Migri заказывает экзамен у университета, и реальные вопросы остаются конфиденциальными, как и в тесте YKI. Когда официальные учебные материалы будут опубликованы, мы пересмотрим и при необходимости обновим наш банк вопросов. Все действующие пользователи получат обновления автоматически и бесплатно.'},
+    {q:'На каком языке проводится официальный экзамен?',a:'Официальный экзамен проводится на финском или шведском языке. На платформе CivicLearn все 800 вопросов доступны на трёх языках, чтобы вы могли учиться на удобном для вас языке.'},
+    {q:'Что входит в пакет за €99?',a:'Пакет включает подготовку к экзамену на гражданство (€69) и к языковому тесту YKI (€69) — итого €99, экономия €39.'},
+    {q:'Я только что оплатил. Что дальше?',a:'После оплаты вы сразу создаёте пароль. Вас перенаправят на страницу входа — введите email и новый пароль, и вы немедленно получите доступ к своему личному учебному кабинету.'},
+    {q:'Можно ли пользоваться платформой на телефоне или планшете?',a:'Да. Платформа доступна с любого устройства с подключением к интернету.'},
+  ],
+  aK:'Полезные статьи',aT:'Статьи об экзамене на гражданство',aL:'Справочная информация, советы по подготовке и всё, что нужно знать о новых требованиях к гражданству Финляндии.',
+  aM:'Все статьи →',aMU:'/articles/',
+  prsPill:'РЕЙТИНГ ПАСПОРТОВ',prsText:'Финский паспорт — один из сильнейших в мире.',prsGo:'Посмотреть место →',
+  compT:'Совместимо со всеми устройствами и современными браузерами',
+  ftCopy:'часть сети CivicLearn',
+  ftFT:'Бесплатный тест',ftFTU:'/ru/besplatny-test/',ftA:'Статьи',ftAU:'/articles/',
+  ftC:'Контакты',ftCU:'/contact/',ftP:'Условия',ftPU:'/policies/',
 }};
 
 function si(id,h){var e=document.getElementById(id);if(e)e.innerHTML=h;}
@@ -873,7 +935,7 @@ function applyLang(lang){
   st('priceKicker',c.prK); st('priceTitle',c.prT); st('priceLead',c.prL);
   st('pBtn1',c.pb1);
   document.getElementById('pBtn2').innerHTML=c.pb2+' <span class="bundle-badge">'+c.pbSv+'</span>';
-  var pfIds=['pf1','pf2','pf3','pf4','pf5','pf6','pf7'];
+  var pfIds=['pf1','pf2','pf3','pf4','pf5','pf6','pf7','pf8x'];
   pfIds.forEach(function(id,i){var e=document.getElementById(id);if(e)e.textContent=c.pf[i]||'';});
   ['pf8','pf9'].forEach(function(id,i){var e=document.getElementById(id);if(e)e.textContent=c.pb_e[i]||'';});
   window.resetPricing(lang);
@@ -889,6 +951,9 @@ function applyLang(lang){
   st('artKicker',c.aK); st('artTitle',c.aT); st('artLead',c.aL);
   si('artMore',c.aM); sh('artMore',c.aMU);
   window.loadArticles(lang);
+
+  // passport ranking strip
+  st('prsPill',c.prsPill); st('prsText',c.prsText); st('prsGo',c.prsGo);
 
   // compat + footer
   st('compatTitle',c.compT);
