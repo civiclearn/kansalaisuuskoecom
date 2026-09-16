@@ -13,14 +13,14 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fi_FI">
   <meta property="og:title" content="Valmistaudu kansalaisuuskokeeseen — Kansalaisuuskoe.com">
-  <meta property="og:description" content="800 kysymystä 5 aihealueelta ja realistiset simulaatioharjoitukset. Uusi vaatimus tammikuusta 2027.">
+  <meta property="og:description" content="800 kysymystä 5 aihealueelta ja realistiset simulaatioharjoitukset. Uusi vaatimus maaliskuusta 2027.">
   <meta property="og:url" content="https://kansalaisuuskoe.com/">
   <meta property="og:image" content="https://kansalaisuuskoe.com/assets/images/og-default.jpg">
 
   <!-- TWITTER CARD -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Valmistaudu kansalaisuuskokeeseen — Kansalaisuuskoe.com">
-  <meta name="twitter:description" content="800 kysymystä, 5 aihealuetta ja simulaatiot. Uusi vaatimus tammikuusta 2027.">
+  <meta name="twitter:description" content="800 kysymystä, 5 aihealuetta ja simulaatiot. Uusi vaatimus maaliskuusta 2027.">
   <meta name="twitter:image" content="https://kansalaisuuskoe.com/assets/images/og-default.jpg">
 
   <!-- JSON-LD -->
@@ -283,8 +283,8 @@
         </div>
         <div class="exam-status-text">
           <p class="exam-status-sentence" id="status-law-text">
-            Uusi kansalaisuuskokeeseen liittyvä lainsäädäntö astuu voimaan
-            <strong>tammikuussa 2027</strong>.
+            Koe koskee hakemuksia, jotka jätetään
+            <strong>1.3.2027 tai sen jälkeen</strong>.
             <span class="status-pill">Uusi vaatimus</span>
           </p>
         </div>
@@ -503,7 +503,7 @@
   <div id="faqList">
     <div class="faq-item">
       <div class="faq-question"><span>Milloin kansalaisuuskoe tulee pakolliseksi?</span></div>
-      <div class="faq-answer"><p>Tasavallan presidentti vahvisti kansalaisuuslain muutokset 16.6.2026. Koe tulee pakolliseksi 1.1.2027 alkaen. Virallista oppimateriaalia ei ole vielä julkaistu, mutta aihealueet on vahvistettu — aloita harjoittelu jo nyt.</p></div>
+      <div class="faq-answer"><p>Tasavallan presidentti vahvisti kansalaisuuslain muutokset 16.6.2026. Laki tulee voimaan 1.1.2027, mutta koetta vaaditaan vasta hakemuksilta, jotka jätetään 1.3.2027 tai sen jälkeen. Ennen sitä jätetyt hakemukset käsitellään vanhan lain mukaan. Virallista oppimateriaalia ei ole vielä julkaistu, mutta aihealueet on vahvistettu — aloita harjoittelu jo nyt.</p></div>
     </div>
     <div class="faq-item">
       <div class="faq-question"><span>Onko tämä tilaus?</span></div>
@@ -625,12 +625,12 @@ document.addEventListener("DOMContentLoaded", bindFaq);
 <!-- EXAM STATUS COUNTDOWN -->
 <script>
 (function(){
-  var LAW="2027-01-01";
+  var LAW="2027-03-01";
   var I18N={
-    fi:{u:'PÄIVÄÄ',u1:'PÄIVÄ',done:'Kansalaisuuskokeeseen liittyvä lainsäädäntö on <strong>astunut voimaan</strong>. <span class="status-pill">Voimassa</span>'},
-    sv:{u:'DAGAR',u1:'DAG',done:'Lagstiftningen om medborgarskapsprovet har <strong>trätt i kraft</strong>. <span class="status-pill">Aktivt</span>'},
-    en:{u:'DAYS',u1:'DAY',done:'The citizenship test legislation has <strong>entered into force</strong>. <span class="status-pill">Active</span>'},
-    ru:{u:'ДНЕЙ',u1:'ДЕНЬ',done:'Законодательство об экзамене на гражданство <strong>вступило в силу</strong>. <span class="status-pill">Действует</span>'}
+    fi:{u:'PÄIVÄÄ',u1:'PÄIVÄ',done:'Koevaatimus <strong>on voimassa</strong>. <span class="status-pill">Voimassa</span>'},
+    sv:{u:'DAGAR',u1:'DAG',done:'Provkravet <strong>gäller nu</strong>. <span class="status-pill">Aktivt</span>'},
+    en:{u:'DAYS',u1:'DAY',done:'The test requirement <strong>is now in force</strong>. <span class="status-pill">Active</span>'},
+    ru:{u:'ДНЕЙ',u1:'ДЕНЬ',done:'Требование об экзамене <strong>действует</strong>. <span class="status-pill">Действует</span>'}
   };
   function daysUntil(d){return Math.max(0,Math.ceil((new Date(d+'T00:00:00')-new Date())/86400000));}
   window.updateCountdown=function(lang){
@@ -728,7 +728,7 @@ document.addEventListener('DOMContentLoaded',function(){window.loadArticles('fi'
 var C={
 fi:{
   htmlLang:'fi',
-  sLaw:'Uusi kansalaisuuskokeeseen liittyvä lainsäädäntö astuu voimaan <strong>tammikuussa 2027</strong>. <span class="status-pill">Uusi vaatimus</span>',
+  sLaw:'Koe koskee hakemuksia, jotka jätetään <strong>1.3.2027 tai sen jälkeen</strong>. <span class="status-pill">Uusi vaatimus</span>',
   sQ:'Harjoittele <strong>5 aihealueen</strong> kysymyksillä, jotka perustuvat viralliseen opetussuunnitelmaan — suomeksi, ruotsiksi ja englanniksi.',
   sQU:'KYSYMYSTÄ',
   hT1:'Valmistaudu kansalaisuuskokeeseen',hT2:'ja saa Suomen passi',
@@ -749,7 +749,7 @@ fi:{
   pb_e:['+ YKI-kielikoe harjoitusmateriaali (suomi/ruotsi)','+ Pääsy molempiin alustoihin samoilla tunnuksilla'],
   faqK:'Usein kysyttyä',faqT:'FAQ — Kansalaisuuskoe',
   faqs:[
-    {q:'Milloin kansalaisuuskoe tulee pakolliseksi?',a:'Tasavallan presidentti vahvisti kansalaisuuslain muutokset 16.6.2026. Koe tulee pakolliseksi 1.1.2027 alkaen. Virallista oppimateriaalia ei ole vielä julkaistu, mutta aihealueet on vahvistettu — aloita harjoittelu jo nyt.'},
+    {q:'Milloin kansalaisuuskoe tulee pakolliseksi?',a:'Tasavallan presidentti vahvisti kansalaisuuslain muutokset 16.6.2026. Laki tulee voimaan 1.1.2027, mutta koetta vaaditaan vasta hakemuksilta, jotka jätetään 1.3.2027 tai sen jälkeen. Ennen sitä jätetyt hakemukset käsitellään vanhan lain mukaan. Virallista oppimateriaalia ei ole vielä julkaistu, mutta aihealueet on vahvistettu — aloita harjoittelu jo nyt.'},
     {q:'Onko tämä tilaus?',a:'Ei. Kertamaksulla (€69) saat rajoittamattoman käyttöoikeuden kaikkeen sisältöön ilman tilausta.'},
     {q:'Ketä kansalaisuuskoe koskee?',a:'Vaatimus koskee 18–64-vuotiaita kansalaisuudenhakijoita. Vapautuksia myönnetään henkilöille, joilla on suomalainen ylioppilastutkinto tai korkeakoulututkinto.'},
     {q:'Ovatko harjoituskysymyksenne virallisia koekysymyksiä?',a:'Eivät. Kysymyksemme perustuvat vahvistettuihin aihealueisiin ja Migrin taustamateriaaliin. Virallista koepankkia ei julkaista — Migri tilaa kokeen yliopistolta, ja kysymykset pysyvät salaisina, aivan kuten YKI-kokeessa. Kun virallinen oppimateriaali julkaistaan, tarkistamme kysymyspankkimme ja päivitämme sen tarvittaessa. Kaikki olemassa olevat käyttäjät saavat päivitykset automaattisesti — ilman lisämaksua.'},
@@ -768,7 +768,7 @@ fi:{
 },
 sv:{
   htmlLang:'sv',
-  sLaw:'Den nya lagstiftningen om medborgarskapsprovet träder i kraft <strong>januari 2027</strong>. <span class="status-pill">Nytt krav</span>',
+  sLaw:'Provet gäller ansökningar som lämnas in <strong>1.3.2027 eller senare</strong>. <span class="status-pill">Nytt krav</span>',
   sQ:'Träna med <strong>5 ämnesområden</strong> baserade på den officiella läroplanen — på finska, svenska och engelska.',
   sQU:'FRÅGOR',
   hT1:'Förbered dig för medborgarskapsprovet',hT2:'och få ditt finska pass',
@@ -789,7 +789,7 @@ sv:{
   pb_e:['+ YKI-språktest träningspaket (finska/svenska)','+ Tillgång till båda plattformarna med samma inloggning'],
   faqK:'Vanliga frågor',faqT:'FAQ — Medborgarskapsprovet',
   faqs:[
-    {q:'När blir medborgarskapsprovet obligatoriskt?',a:'Republikkens president stadfäste lagändringarna den 16 juni 2026. Provet blir obligatoriskt från och med den 1 januari 2027. Det officiella läromedlet har ännu inte publicerats, men ämnesområdena är fastställda — börja träna redan nu.'},
+    {q:'När blir medborgarskapsprovet obligatoriskt?',a:'Republikens president stadfäste lagändringarna den 16 juni 2026. Lagen träder i kraft 1.1.2027, men provet krävs först av ansökningar som lämnas in 1.3.2027 eller senare. Ansökningar som lämnas in före det prövas enligt den gamla lagen. Det officiella läromedlet har ännu inte publicerats, men ämnesområdena är fastställda — börja träna redan nu.'},
     {q:'Är detta en prenumeration?',a:'Nej. En engångsbetalning på €69 ger dig obegränsad tillgång till allt innehåll, utan någon prenumeration.'},
     {q:'Vem berörs av medborgarskapsprovet?',a:'Kravet gäller medborgarskapssökande i åldern 18–64 år. Undantag medges för dem med finsk studentexamen eller högskoleexamen från en finsk läroanstalt.'},
     {q:'Är era övningsfrågor officiella provfrågor?',a:'Nej. Våra frågor baseras på de fastställda ämnesområdena och bakgrundsmaterialet från Migri. Någon officiell frågebank kommer inte att publiceras — Migri beställer provet från ett universitet och frågorna förblir konfidentiella, precis som i YKI-provet. När det officiella läromedlet publiceras granskar vi vår frågebank och uppdaterar den vid behov. Alla befintliga användare får uppdateringarna automatiskt — utan extra kostnad.'},
@@ -808,7 +808,7 @@ sv:{
 },
 en:{
   htmlLang:'en',
-  sLaw:"New citizenship test legislation enters into force <strong>January 2027</strong>. <span class='status-pill'>New requirement</span>",
+  sLaw:"The test applies to applications submitted <strong>on or after 1 March 2027</strong>. <span class='status-pill'>New requirement</span>",
   sQ:'Practise with <strong>5 topic areas</strong> based on the official curriculum — in Finnish, Swedish and English.',
   sQU:'QUESTIONS',
   hT1:'Pass the citizenship test',hT2:'and get your Finnish passport',
@@ -829,7 +829,7 @@ en:{
   pb_e:['+ YKI language test training material (Finnish/Swedish)','+ Access both platforms with the same login'],
   faqK:'FAQ',faqT:'FAQ — Citizenship test',
   faqs:[
-    {q:'When does the citizenship test become mandatory?',a:"President Stubb signed the Nationality Act amendments into law on 16 June 2026. The test becomes mandatory from 1 January 2027. The official study material has not yet been published, but the topic areas are confirmed — start preparing now."},
+    {q:'When does the citizenship test become mandatory?',a:"President Stubb signed the Nationality Act amendments into law on 16 June 2026. The law enters into force on 1 January 2027, but the test is only required for applications submitted on or after 1 March 2027. Applications submitted before then are processed under the current Act. The official study material has not yet been published, but the topic areas are confirmed — start preparing now."},
     {q:'Is this a subscription?',a:'No. A one-time payment of €69 gives you unlimited access to all content, with no subscription.'},
     {q:'Who does the citizenship test apply to?',a:'The requirement applies to citizenship applicants aged 18–64. Exemptions are granted for those with a Finnish matriculation exam or a degree from a Finnish higher education institution.'},
     {q:'Are your practice questions the official exam questions?',a:"No. Our questions are based on the confirmed topic areas and background material from Migri. There is no public question bank — Migri commissions the test from a university and the actual questions remain confidential, just like the YKI language test. When the official study material is published, we will review our question bank and update it where necessary. All existing users receive any updates automatically, at no extra cost."},
@@ -848,7 +848,7 @@ en:{
 },
 ru:{
   htmlLang:'ru',
-  sLaw:'Новое законодательство об экзамене на гражданство вступает в силу <strong>в январе 2027 года</strong>. <span class="status-pill">Новое требование</span>',
+  sLaw:'Экзамен касается заявлений, поданных <strong>1 марта 2027 года или позже</strong>. <span class="status-pill">Новое требование</span>',
   sQ:'Тренируйтесь с вопросами по <strong>5 темам</strong> на основе официальной программы — на финском, шведском и английском.',
   sQU:'ВОПРОСОВ',
   hT1:'Сдайте экзамен на гражданство Финляндии',hT2:'и получите финский паспорт',
@@ -869,7 +869,7 @@ ru:{
   pb_e:['+ Учебные материалы для языкового теста YKI (финский/шведский)','+ Доступ к обеим платформам с одним логином'],
   faqK:'Часто задаваемые вопросы',faqT:'FAQ — Экзамен на гражданство',
   faqs:[
-    {q:'Когда экзамен на гражданство станет обязательным?',a:'Президент Финляндии подписал поправки к Закону о гражданстве 16 июня 2026 года. Экзамен становится обязательным с 1 января 2027 года. Официальные учебные материалы ещё не опубликованы, но темы уже утверждены — начинайте готовиться прямо сейчас.'},
+    {q:'Когда экзамен на гражданство станет обязательным?',a:'Президент Финляндии подписал поправки к Закону о гражданстве 16 июня 2026 года. Закон вступает в силу 1 января 2027 года, но экзамен требуется только для заявлений, поданных 1 марта 2027 года или позже. Заявления, поданные раньше, рассматриваются по прежнему закону. Официальные учебные материалы ещё не опубликованы, но темы уже утверждены — начинайте готовиться прямо сейчас.'},
     {q:'Это подписка?',a:'Нет. Единовременный платёж €69 даёт неограниченный доступ ко всем материалам без какой-либо подписки.'},
     {q:'Кого касается экзамен на гражданство?',a:'Требование распространяется на соискателей гражданства в возрасте 18–64 лет. Освобождение предоставляется лицам с финским аттестатом зрелости или дипломом финского вуза.'},
     {q:'Ваши тренировочные вопросы — это официальные вопросы экзамена?',a:'Нет. Наши вопросы составлены на основе утверждённых тем и справочных материалов Migri. Официальная база вопросов не публикуется — Migri заказывает экзамен у университета, и реальные вопросы остаются конфиденциальными, как и в тесте YKI. Когда официальные учебные материалы будут опубликованы, мы пересмотрим и при необходимости обновим наш банк вопросов. Все действующие пользователи получат обновления автоматически и бесплатно.'},

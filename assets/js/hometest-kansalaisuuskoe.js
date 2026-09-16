@@ -53,8 +53,8 @@ fi: [
     a: ['18–64-vuotiaita kansalaisuudenhakijoita', 'Kaikkia ulkomaalaisia Suomessa', 'Vain EU:n ulkopuolelta tulevia hakijoita'] },
   { q: 'Mikä on eduskunnan päätehtävä?',
     a: ['Säätää lakeja ja päättää valtion talousarviosta', 'Johtaa ulkopolitiikkaa', 'Nimetä presidentti suoraan'] },
-  { q: 'Milloin kansalaisuuskokeeseen liittyvä lainsäädäntö on suunniteltu tulemaan voimaan?',
-    a: ['Tammikuussa 2027', 'Kesäkuussa 2026', 'Tammikuussa 2028'] },
+  { q: 'Mistä alkaen kansalaisuuskoetta vaaditaan?',
+    a: ['Hakemuksilta, jotka jätetään 1.3.2027 tai sen jälkeen', 'Hakemuksilta, jotka jätetään 1.1.2027 tai sen jälkeen', 'Hakemuksilta, jotka jätetään 1.1.2028 tai sen jälkeen'] },
 ],
 
 sv: [
@@ -96,8 +96,8 @@ sv: [
     a: ['Medborgarskapssökande i åldern 18–64 år', 'Alla utlänningar i Finland', 'Endast sökande från länder utanför EU'] },
   { q: 'Vad är riksdagens huvuduppgift?',
     a: ['Stifta lagar och besluta om statsbudgeten', 'Leda utrikespolitiken', 'Utse presidenten direkt'] },
-  { q: 'När planeras lagstiftningen om medborgarskapsprovet träda i kraft?',
-    a: ['Januari 2027', 'Juni 2026', 'Januari 2028'] },
+  { q: 'Från när krävs medborgarskapsprovet?',
+    a: ['Av ansökningar som lämnas in 1.3.2027 eller senare', 'Av ansökningar som lämnas in 1.1.2027 eller senare', 'Av ansökningar som lämnas in 1.1.2028 eller senare'] },
 ],
 
 en: [
@@ -139,8 +139,8 @@ en: [
     a: ['Citizenship applicants aged 18–64', 'All foreigners in Finland', 'Only applicants from non-EU countries'] },
   { q: "What is the main role of Finland's parliament (Eduskunta)?",
     a: ['To enact legislation and approve the state budget', 'To lead foreign policy', 'To directly appoint the president'] },
-  { q: 'When is the citizenship test legislation planned to enter into force?',
-    a: ['January 2027', 'June 2026', 'January 2028'] },
+  { q: 'From when is the citizenship test required?',
+    a: ['For applications submitted on or after 1 March 2027', 'For applications submitted on or after 1 January 2027', 'For applications submitted on or after 1 January 2028'] },
 ],
 
 ru: [
@@ -182,8 +182,8 @@ ru: [
     a: ['На соискателей гражданства в возрасте 18–64 лет', 'На всех иностранцев в Финляндии', 'Только на заявителей из стран за пределами ЕС'] },
   { q: 'Какова главная функция финского парламента (Eduskunta)?',
     a: ['Принимать законы и утверждать государственный бюджет', 'Руководить внешней политикой', 'Напрямую назначать президента'] },
-  { q: 'Когда вступает в силу законодательство об экзамене на гражданство?',
-    a: ['В январе 2027 года', 'В июне 2026 года', 'В январе 2028 года'] },
+  { q: 'С какого момента требуется экзамен на гражданство?',
+    a: ['Для заявлений, поданных 1 марта 2027 года или позже', 'Для заявлений, поданных 1 января 2027 года или позже', 'Для заявлений, поданных 1 января 2028 года или позже'] },
 ]
 
 };
