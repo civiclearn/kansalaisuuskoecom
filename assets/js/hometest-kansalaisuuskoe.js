@@ -203,7 +203,8 @@ const HOMETEST_I18N = {
     t0:  'Jatka harjoittelua!',
     body: 'Olet nyt kokeillut joitain harjoituskysymyksiämme. Hanki pääsy <strong>800 kysymykseen 5 aihealueelta yksityiskohtaisella palautteella</strong> ja harjoittele omaan tahtiisi.',
     cta: 'Hanki täysi käyttöoikeus',
-    ctaUrl: 'https://civiclearn.com/kansalaisuuskoe/checkout'
+    ctaUrl: 'https://civiclearn.com/kansalaisuuskoe/checkout',
+    curious: "Pelkkää uteliaisuutta? Kokeile maailman vaikeimpia kansalaisuuskysymyksiä (englanniksi) →"
   },
   sv: {
     progress:   'Framsteg',
@@ -216,7 +217,8 @@ const HOMETEST_I18N = {
     t0:  'Fortsätt träna!',
     body: 'Du har nu provat några av våra exempelfrågor. Få tillgång till <strong>800 frågor i 5 ämnesområden med detaljerad feedback</strong> och träna i din egen takt.',
     cta: 'Fullständig tillgång',
-    ctaUrl: 'https://civiclearn.com/kansalaisuuskoe/checkout'
+    ctaUrl: 'https://civiclearn.com/kansalaisuuskoe/checkout',
+    curious: "Bara nyfiken? Testa världens svåraste medborgarskapsfrågor (på engelska) →"
   },
   en: {
     progress:   'Progress',
@@ -229,7 +231,8 @@ const HOMETEST_I18N = {
     t0:  'Keep practising!',
     body: 'You have now tried some of our practice questions. Get access to <strong>800 questions across 5 topic areas with detailed feedback</strong> and train at your own pace.',
     cta: 'Get full access',
-    ctaUrl: 'https://civiclearn.com/kansalaisuuskoe/checkout'
+    ctaUrl: 'https://civiclearn.com/kansalaisuuskoe/checkout',
+    curious: "Just curious? Try the hardest citizenship test questions in the world →"
   },
   ru: {
     progress:   'Прогресс',
@@ -242,7 +245,8 @@ const HOMETEST_I18N = {
     t0:  'Продолжайте тренироваться!',
     body: 'Вы попробовали несколько наших тренировочных вопросов. Получите доступ к <strong>800 вопросам по 5 темам с подробными пояснениями</strong> и занимайтесь в удобном для вас темпе.',
     cta: 'Получить полный доступ',
-    ctaUrl: 'https://civiclearn.com/kansalaisuuskoe/checkout'
+    ctaUrl: 'https://civiclearn.com/kansalaisuuskoe/checkout',
+    curious: "Просто интересно? Попробуйте самые сложные вопросы на гражданство в мире (на английском) →"
   }
 };
 
@@ -328,7 +332,8 @@ window.initQuiz = function (lang) {
       '<h3>' + title + '</h3>' +
       createDonutChart(pct) +
       '<p>' + i18n.body + '</p>' +
-      '<a href="' + i18n.ctaUrl + '" class="hero-primary-btn">' + i18n.cta + '</a>';
+      '<a href="' + i18n.ctaUrl + '" class="hero-primary-btn">' + i18n.cta + '</a>' +
+      '<p class="wc-curious" style="margin-top:0.9rem;font-size:0.85rem;line-height:1.45;text-align:center;"><a href="https://civiclearn.com/insights/hardest-citizenship-questions?utm_source=kansalaisuuskoecom-home&amp;utm_medium=free-test&amp;utm_campaign=world-challenge" target="_blank" rel="noopener" style="color:inherit;opacity:0.75;text-decoration:underline;text-underline-offset:2px;">' + i18n.curious + '</a></p>';
     return card;
   }
 
