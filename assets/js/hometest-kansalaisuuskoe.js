@@ -1,18 +1,64 @@
-// hometest-kansalaisuuskoe.js
-// Quadrilingual (FI / SV / EN / RU) — follows the same architecture as hometest-medborgarskapsprov.js
-// Exposed: window.initQuiz(lang) — called by applyLang() in index.html
-
-// ----------------------------
-// SETTINGS
-// ----------------------------
-const QUESTIONS_PER_ROW = 3;
-
-// ----------------------------
-// FULL QUESTION POOL
-// Finnish civics: constitution, government, history, rights, society, language
-// Correct answer is always index 0 — shuffled at runtime
-// ----------------------------
-const INLINE_TEST_QUESTIONS = {
+// Free practice questions shown on the homepage.
+// Only the questions and texts live here. The quiz itself is built by the shared CivicLearn
+// script https://civiclearn.com/assets/js/presale-quiz.js, which the page loads right after this file.
+window.CL_QUIZ = {
+  defaultLang: 'fi',
+  initialLang: function () { try { return localStorage.getItem('kk_lang') || 'fi'; } catch (e) { return 'fi'; } },
+  i18n: {
+  fi: {
+    progress:   'Edistyminen',
+    questions:  'kysymystä',
+    correct:    'Oikein!',
+    wrongPfx:   'Oikea vastaus: ',
+    t80: 'Erinomainen tulos!',
+    t50: 'Hyvä suoritus!',
+    t25: 'Hyvä alku!',
+    t0:  'Jatka harjoittelua!',
+    body: 'Olet nyt kokeillut joitain harjoituskysymyksiämme. Hanki pääsy <strong>800 kysymykseen 5 aihealueelta yksityiskohtaisella palautteella</strong> ja harjoittele omaan tahtiisi.',
+    cta: 'Hanki täysi käyttöoikeus',
+    ctaUrl: 'https://civiclearn.com/kansalaisuuskoe/checkout',
+  },
+  sv: {
+    progress:   'Framsteg',
+    questions:  'frågor',
+    correct:    'Rätt!',
+    wrongPfx:   'Rätt svar: ',
+    t80: 'Utmärkt jobbat!',
+    t50: 'Bra gjort!',
+    t25: 'Bra start!',
+    t0:  'Fortsätt träna!',
+    body: 'Du har nu provat några av våra exempelfrågor. Få tillgång till <strong>800 frågor i 5 ämnesområden med detaljerad feedback</strong> och träna i din egen takt.',
+    cta: 'Fullständig tillgång',
+    ctaUrl: 'https://civiclearn.com/kansalaisuuskoe/checkout',
+  },
+  en: {
+    progress:   'Progress',
+    questions:  'questions',
+    correct:    'Correct!',
+    wrongPfx:   'Correct answer: ',
+    t80: 'Excellent result!',
+    t50: 'Well done!',
+    t25: 'Good start!',
+    t0:  'Keep practising!',
+    body: 'You have now tried some of our practice questions. Get access to <strong>800 questions across 5 topic areas with detailed feedback</strong> and train at your own pace.',
+    cta: 'Get full access',
+    ctaUrl: 'https://civiclearn.com/kansalaisuuskoe/checkout',
+  },
+  ru: {
+    progress:   'Прогресс',
+    questions:  'вопросов',
+    correct:    'Верно!',
+    wrongPfx:   'Правильный ответ: ',
+    t80: 'Отличный результат!',
+    t50: 'Хороший результат!',
+    t25: 'Хорошее начало!',
+    t0:  'Продолжайте тренироваться!',
+    body: 'Вы попробовали несколько наших тренировочных вопросов. Получите доступ к <strong>800 вопросам по 5 темам с подробными пояснениями</strong> и занимайтесь в удобном для вас темпе.',
+    cta: 'Получить полный доступ',
+    ctaUrl: 'https://civiclearn.com/kansalaisuuskoe/checkout',
+  }
+},
+  questions: {
 
 fi: [
   { q: 'Milloin Suomen nykyinen perustuslaki tuli voimaan?',
@@ -186,241 +232,5 @@ ru: [
     a: ['Для заявлений, поданных 1 марта 2027 года или позже', 'Для заявлений, поданных 1 января 2027 года или позже', 'Для заявлений, поданных 1 января 2028 года или позже'] },
 ]
 
-};
-
-// ----------------------------
-// I18N — progress, feedback, end card
-// ----------------------------
-const HOMETEST_I18N = {
-  fi: {
-    progress:   'Edistyminen',
-    questions:  'kysymystä',
-    correct:    'Oikein!',
-    wrongPfx:   'Oikea vastaus: ',
-    t80: 'Erinomainen tulos!',
-    t50: 'Hyvä suoritus!',
-    t25: 'Hyvä alku!',
-    t0:  'Jatka harjoittelua!',
-    body: 'Olet nyt kokeillut joitain harjoituskysymyksiämme. Hanki pääsy <strong>800 kysymykseen 5 aihealueelta yksityiskohtaisella palautteella</strong> ja harjoittele omaan tahtiisi.',
-    cta: 'Hanki täysi käyttöoikeus',
-    ctaUrl: 'https://civiclearn.com/kansalaisuuskoe/checkout',
-    curious: "Pelkkää uteliaisuutta? Kokeile maailman vaikeimpia kansalaisuuskysymyksiä (englanniksi) →"
-  },
-  sv: {
-    progress:   'Framsteg',
-    questions:  'frågor',
-    correct:    'Rätt!',
-    wrongPfx:   'Rätt svar: ',
-    t80: 'Utmärkt jobbat!',
-    t50: 'Bra gjort!',
-    t25: 'Bra start!',
-    t0:  'Fortsätt träna!',
-    body: 'Du har nu provat några av våra exempelfrågor. Få tillgång till <strong>800 frågor i 5 ämnesområden med detaljerad feedback</strong> och träna i din egen takt.',
-    cta: 'Fullständig tillgång',
-    ctaUrl: 'https://civiclearn.com/kansalaisuuskoe/checkout',
-    curious: "Bara nyfiken? Testa världens svåraste medborgarskapsfrågor (på engelska) →"
-  },
-  en: {
-    progress:   'Progress',
-    questions:  'questions',
-    correct:    'Correct!',
-    wrongPfx:   'Correct answer: ',
-    t80: 'Excellent result!',
-    t50: 'Well done!',
-    t25: 'Good start!',
-    t0:  'Keep practising!',
-    body: 'You have now tried some of our practice questions. Get access to <strong>800 questions across 5 topic areas with detailed feedback</strong> and train at your own pace.',
-    cta: 'Get full access',
-    ctaUrl: 'https://civiclearn.com/kansalaisuuskoe/checkout',
-    curious: "Just curious? Try the hardest citizenship test questions in the world →"
-  },
-  ru: {
-    progress:   'Прогресс',
-    questions:  'вопросов',
-    correct:    'Верно!',
-    wrongPfx:   'Правильный ответ: ',
-    t80: 'Отличный результат!',
-    t50: 'Хороший результат!',
-    t25: 'Хорошее начало!',
-    t0:  'Продолжайте тренироваться!',
-    body: 'Вы попробовали несколько наших тренировочных вопросов. Получите доступ к <strong>800 вопросам по 5 темам с подробными пояснениями</strong> и занимайтесь в удобном для вас темпе.',
-    cta: 'Получить полный доступ',
-    ctaUrl: 'https://civiclearn.com/kansalaisuuskoe/checkout',
-    curious: "Просто интересно? Попробуйте самые сложные вопросы на гражданство в мире (на английском) →"
-  }
-};
-
-// ----------------------------
-// SHUFFLE helper
-// ----------------------------
-function shuffleAnswers(question) {
-  var combined = question.a.map(function (opt, index) {
-    return { text: opt, isCorrect: index === 0 };
-  });
-  for (var i = combined.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1));
-    var tmp = combined[i]; combined[i] = combined[j]; combined[j] = tmp;
-  }
-  question.a = combined.map(function (item) { return item.text; });
-  question.correct = combined.findIndex(function (item) { return item.isCorrect; });
 }
-
-// ----------------------------
-// DONUT chart (Finnish flag blue)
-// ----------------------------
-function createDonutChart(pct) {
-  var C = 2 * Math.PI * 40;
-  return (
-    '<div class="donut-wrapper">' +
-      '<svg width="120" height="120" viewBox="0 0 100 100">' +
-        '<circle cx="50" cy="50" r="40" stroke="#dce8f7" stroke-width="12" fill="none"></circle>' +
-        '<circle cx="50" cy="50" r="40" stroke="#003580" stroke-width="12" fill="none"' +
-          ' stroke-dasharray="' + ((pct / 100) * C).toFixed(2) + ' ' + ((1 - pct / 100) * C).toFixed(2) + '"' +
-          ' transform="rotate(-90 50 50)" stroke-linecap="round"></circle>' +
-      '</svg>' +
-      '<div class="donut-center">' + pct + '%</div>' +
-    '</div>'
-  );
-}
-
-// ----------------------------
-// MAIN init — resets and rebuilds quiz for given language
-// ----------------------------
-window.initQuiz = function (lang) {
-
-  lang = (lang && INLINE_TEST_QUESTIONS[lang]) ? lang : 'fi';
-  var i18n = HOMETEST_I18N[lang];
-
-  // Deep-copy and shuffle question pool for this language
-  var pool = INLINE_TEST_QUESTIONS[lang].map(function (q) {
-    return { q: q.q, a: q.a.slice(), correct: 0 };
-  });
-  pool.forEach(shuffleAnswers);
-
-  // Build rows
-  var rows = [];
-  for (var i = 0; i < pool.length; i += QUESTIONS_PER_ROW) {
-    rows.push(pool.slice(i, i + QUESTIONS_PER_ROW));
-  }
-
-  var totalQuestions   = pool.length;
-  var correctCount     = 0;
-  var answeredCount    = 0;
-  var currentRow       = 0;
-  var rowAnsweredCounts = new Array(rows.length).fill(0);
-
-  // Reset DOM
-  var container = document.getElementById('inline-test-questions');
-  if (!container) return;
-  container.innerHTML = '';
-
-  // Reset progress
-  function updateProgress() {
-    var bar = document.getElementById('inline-progressbar');
-    var txt = document.getElementById('inline-progress-text');
-    if (bar) bar.style.width = ((answeredCount / totalQuestions) * 100) + '%';
-    if (txt) txt.textContent = i18n.progress + ': ' + answeredCount + ' / ' + totalQuestions + ' ' + i18n.questions;
-  }
-
-  // End card
-  function createEndCard() {
-    var pct  = Math.round((correctCount / totalQuestions) * 100);
-    var card = document.createElement('div');
-    card.className = 'inline-question-card end-card';
-    var title = pct >= 80 ? i18n.t80 : pct >= 50 ? i18n.t50 : pct >= 25 ? i18n.t25 : i18n.t0;
-    card.innerHTML =
-      '<h3>' + title + '</h3>' +
-      createDonutChart(pct) +
-      '<p>' + i18n.body + '</p>' +
-      '<a href="' + i18n.ctaUrl + '" class="hero-primary-btn">' + i18n.cta + '</a>' +
-      '<p class="wc-curious" style="margin-top:0.9rem;font-size:0.85rem;line-height:1.45;text-align:center;"><a href="https://civiclearn.com/insights/hardest-citizenship-questions?utm_source=kansalaisuuskoecom-home&amp;utm_medium=free-test&amp;utm_campaign=world-challenge" target="_blank" rel="noopener" style="color:inherit;opacity:0.75;text-decoration:underline;text-underline-offset:2px;">' + i18n.curious + '</a></p>';
-    return card;
-  }
-
-  // Question card
-  function createQuestionCard(questionObj, absoluteIndex, rowIndex) {
-    var card = document.createElement('div');
-    card.className = 'inline-question-card';
-
-    var title = document.createElement('h3');
-    title.textContent = questionObj.q;
-    card.appendChild(title);
-
-    var feedback = document.createElement('div');
-    feedback.className = 'inline-feedback';
-
-    questionObj.a.forEach(function (opt, i) {
-      var btn = document.createElement('button');
-      btn.className = 'inline-option-btn';
-      btn.textContent = opt;
-
-      btn.onclick = function () {
-        answeredCount++;
-        rowAnsweredCounts[rowIndex]++;
-        updateProgress();
-
-        var allBtns = card.querySelectorAll('button');
-        allBtns.forEach(function (b) { b.disabled = true; });
-
-        if (i === questionObj.correct) {
-          correctCount++;
-          btn.style.background  = 'rgba(24, 160, 110, 0.15)';
-          btn.style.borderColor = '#18a06e';
-          btn.style.color       = '#14805a';
-          feedback.textContent  = i18n.correct;
-          feedback.classList.add('inline-correct');
-        } else {
-          btn.style.background  = 'rgba(230, 57, 70, 0.12)';
-          btn.style.borderColor = '#e63946';
-          btn.style.color       = '#c5303b';
-          allBtns[questionObj.correct].style.background  = 'rgba(24, 160, 110, 0.15)';
-          allBtns[questionObj.correct].style.borderColor = '#18a06e';
-          allBtns[questionObj.correct].style.color       = '#14805a';
-          feedback.textContent = i18n.wrongPfx + questionObj.a[questionObj.correct];
-          feedback.classList.add('inline-wrong');
-        }
-
-        card.appendChild(feedback);
-
-        // Last question → show end card
-        if (absoluteIndex === totalQuestions - 1) {
-          setTimeout(function () { container.appendChild(createEndCard()); }, 300);
-          return;
-        }
-
-        // Row complete → reveal next row
-        var rowSize = rows[rowIndex].length;
-        if (rowAnsweredCounts[rowIndex] === rowSize) {
-          currentRow++;
-          setTimeout(function () { renderRow(currentRow); }, 150);
-        }
-      };
-
-      card.appendChild(btn);
-    });
-
-    return card;
-  }
-
-  // Render a row of cards
-  function renderRow(rowIndex) {
-    if (!rows[rowIndex]) return;
-    rows[rowIndex].forEach(function (q, offset) {
-      var absoluteIndex = rowIndex * QUESTIONS_PER_ROW + offset;
-      container.appendChild(createQuestionCard(q, absoluteIndex, rowIndex));
-    });
-  }
-
-  // Kick off
-  renderRow(0);
-  updateProgress();
 };
-
-// ----------------------------
-// Auto-init on first load
-// ----------------------------
-document.addEventListener('DOMContentLoaded', function () {
-  var saved = localStorage.getItem('kk_lang');
-  var lang  = (saved && INLINE_TEST_QUESTIONS[saved]) ? saved : 'fi';
-  window.initQuiz(lang);
-});
