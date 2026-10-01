@@ -39,6 +39,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/newhome.css">
+  <link rel="stylesheet" href="/assets/css/home-v2.css">
 
   <!-- Pricing + bundle styles + language switcher + Finnish flag progress bar -->
   <style>
@@ -234,370 +235,285 @@
 <body>
 
 <!-- HEADER -->
-<header class="cl-header">
-  <div class="cl-header-inner">
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a href="/" class="logo logo-long"><img alt="FI" src="/assets/images/fi.svg"/><span>Kansalaisuuskoe.com</span></a>
 
-    <a href="/" class="cl-logo">
-      <img src="/assets/images/fi.svg" alt="FI" />
-      <span>Kansalaisuuskoe.com</span>
-    </a>
+    <button class="burger" type="button" aria-label="Valikko" aria-expanded="false" aria-controls="site-nav"
+      onclick="var o=document.getElementById('hdr').classList.toggle('menu-open');this.setAttribute('aria-expanded',o)">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
 
-    <nav class="cl-nav">
+    <nav class="nav" id="site-nav">
       <a href="/fi/ilmainen-testi/" id="navFreeTest">Ilmainen testi</a>
-      <a href="/fi/artikkelit/"     id="navArticles">Artikkelit</a>
-      <a href="/fi/yhteystiedot/"   id="navContact">Yhteystiedot</a>
+      <a href="/fi/artikkelit/" id="navArticles">Artikkelit</a>
+      <a href="/fi/yhteystiedot/" id="navContact">Yhteystiedot</a>
       <a href="https://civiclearn.com/kansalaisuuskoe/login" id="navLogin">Kirjaudu</a>
+      <div class="lang lang-btns"><button class="cl-lang-btn active" data-lang="fi">🇫🇮 FI</button> <button class="cl-lang-btn" data-lang="sv">🇸🇪 SV</button> <button class="cl-lang-btn" data-lang="en">🇬🇧 EN</button> <button class="cl-lang-btn" data-lang="ru">🇷🇺 RU</button></div>
     </nav>
 
-    <div class="cl-lang">
-      <button class="cl-lang-btn active" data-lang="fi">🇫🇮 FI</button>
-      <button class="cl-lang-btn"        data-lang="sv">🇸🇪 SV</button>
-      <button class="cl-lang-btn"        data-lang="en">🇬🇧 EN</button>
-      <button class="cl-lang-btn"        data-lang="ru">🇷🇺 RU</button>
-    </div>
-
-    <div class="cl-right">
-      <div class="cl-powered">
-        powered by <span>CivicLearn</span>
+    <div class="hdr-right">
+      <div class="powered">
+        <div>powered by <b>CivicLearn</b></div>
+        <a class="tp" href="https://www.trustpilot.com/review/civiclearn.com" target="_blank" rel="noopener" aria-label="CivicLearn Trustpilotissa: 4,5/5">
+          <span class="tp-stars" aria-hidden="true">
+            <svg viewBox="0 0 25 25"><rect width="25" height="25" fill="#00b67a"/><path fill="#fff" d="M12.5 4.3l2.1 5.1 5.5.4-4.2 3.6 1.3 5.4-4.7-3-4.7 3 1.3-5.4-4.2-3.6 5.5-.4z"/></svg>
+            <svg viewBox="0 0 25 25"><rect width="25" height="25" fill="#00b67a"/><path fill="#fff" d="M12.5 4.3l2.1 5.1 5.5.4-4.2 3.6 1.3 5.4-4.7-3-4.7 3 1.3-5.4-4.2-3.6 5.5-.4z"/></svg>
+            <svg viewBox="0 0 25 25"><rect width="25" height="25" fill="#00b67a"/><path fill="#fff" d="M12.5 4.3l2.1 5.1 5.5.4-4.2 3.6 1.3 5.4-4.7-3-4.7 3 1.3-5.4-4.2-3.6 5.5-.4z"/></svg>
+            <svg viewBox="0 0 25 25"><rect width="25" height="25" fill="#00b67a"/><path fill="#fff" d="M12.5 4.3l2.1 5.1 5.5.4-4.2 3.6 1.3 5.4-4.7-3-4.7 3 1.3-5.4-4.2-3.6 5.5-.4z"/></svg>
+            <svg viewBox="0 0 25 25"><rect width="12.5" height="25" fill="#00b67a"/><rect x="12.5" width="12.5" height="25" fill="#dcdce6"/><path fill="#fff" d="M12.5 4.3l2.1 5.1 5.5.4-4.2 3.6 1.3 5.4-4.7-3-4.7 3 1.3-5.4-4.2-3.6 5.5-.4z"/></svg>
+          </span>
+          <span class="tp-word">Trustpilot</span>
+        </a>
       </div>
-      <a href="https://civiclearn.com/kansalaisuuskoe/checkout" class="cl-btn" id="headerCta">
-        Aloita harjoittelu
-      </a>
+      <a href="https://civiclearn.com/kansalaisuuskoe/checkout" class="btn btn-primary" id="headerCta">Aloita harjoittelu</a>
     </div>
-
   </div>
 </header>
 
 
 <!-- HERO -->
 <section class="hero">
-
-  <!-- EXAM STATUS BAR -->
-  <section class="exam-status">
-    <div class="exam-status-inner">
-
-      <div class="exam-status-row">
-        <div class="exam-status-counter" id="status-law-counter">
-          <span class="count-number">—</span>
-          <span class="count-unit" id="status-day-unit">PÄIVÄÄ</span>
-        </div>
-        <div class="exam-status-text">
-          <p class="exam-status-sentence" id="status-law-text">
+  <div class="wrap hero-grid">
+    <div>
+      <section class="exam-status">
+<div class="exam-status-inner">
+<div class="exam-status-row">
+<div class="exam-status-counter" id="status-law-counter">
+<span class="count-number">—</span>
+<span class="count-unit" id="status-day-unit">PÄIVÄÄ</span>
+</div>
+<div class="exam-status-text">
+<p class="exam-status-sentence" id="status-law-text">
             Koe koskee hakemuksia, jotka jätetään
             <strong>1.3.2027 tai sen jälkeen</strong>.
             <span class="status-pill">Uusi vaatimus</span>
-          </p>
-        </div>
-      </div>
-
-      <div class="exam-status-row exam-status-row--registration">
-        <div class="exam-status-counter" id="status-topics-counter">
-          <span class="count-number">800</span>
-          <span class="count-unit" id="status-q-unit">KYSYMYSTÄ</span>
-        </div>
-        <div class="exam-status-text">
-          <p class="exam-status-sentence" id="status-topics-text">
+</p>
+</div>
+</div>
+<div class="exam-status-row exam-status-row--registration">
+<div class="exam-status-counter" id="status-topics-counter">
+<span class="count-number">800</span>
+<span class="count-unit" id="status-q-unit">KYSYMYSTÄ</span>
+</div>
+<div class="exam-status-text">
+<p class="exam-status-sentence" id="status-topics-text">
             Harjoittele <strong>5 aihealueen</strong> kysymyksillä, jotka perustuvat
             viralliseen opetussuunnitelmaan — suomeksi, ruotsiksi ja englanniksi.
           </p>
-        </div>
+</div>
+</div>
+</div>
+</section>
+      
+      <h1><span id="heroTitle1">Valmistaudu kansalaisuuskokeeseen</span> <span class="h1-rest" id="heroTitle2">ja saa Suomen passi</span></h1>
+      <p class="hero-sub" id="heroSubtitle">800 harjoituskysymystä 5 aihealueelta ja realistiset simulaatioharjoitukset. Kolmikielinen tuki FI/SV/EN. Aloita harjoittelu jo tänään.</p>
+      <div class="hero-ctas">
+        <a href="https://civiclearn.com/kansalaisuuskoe/checkout" class="btn btn-primary" id="heroPrimaryBtn">Aloita harjoittelu</a>
+        <a href="/fi/ilmainen-testi/" class="btn btn-ghost" id="heroSecondaryBtn">Kokeile ilmaiseksi</a>
       </div>
-
-    </div>
-  </section>
-
-  <!-- HERO CENTER CONTENT -->
-  <div class="hero-center hero-center--spaced">
-
-    <h1 class="hero-title">
-      <span id="heroTitle1">Valmistaudu kansalaisuuskokeeseen<br></span>
-      <span id="heroTitle2">ja saa Suomen passi</span>
-    </h1>
-
-    <p class="hero-subtitle" id="heroSubtitle">
-      800 harjoituskysymystä 5 aihealueelta ja realistiset simulaatioharjoitukset.<br>
-      Kolmikielinen tuki FI/SV/EN. Aloita harjoittelu jo tänään.
-    </p>
-
-    <div class="hero-actions">
-      <a href="https://civiclearn.com/kansalaisuuskoe/checkout" class="hero-primary-btn" id="heroPrimaryBtn">
-        Aloita harjoittelu
-      </a>
-      <a href="/fi/ilmainen-testi/" class="hero-secondary-btn" id="heroSecondaryBtn">
-        Kokeile ilmaiseksi
-      </a>
-    </div>
-
-    <div class="hero-social">
-      <div class="hero-social-top">
-        <span class="rating-stars">★★★★★</span>
-        <span class="rating-word" id="heroRatingWord">Erinomainen</span>
-      </div>
-      <div class="hero-social-sub" id="heroSocialSub">
-        Tuhansia kandidaatteja valmistautunut<br class="mobile-only">CivicLearn-verkostossa.
+      <p class="hero-meta" id="v2Meta"><strong>€69 kertamaksu</strong> · elinikäinen pääsy · ei tilausta</p>
+      <div class="rating">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <strong id="heroRatingWord">Erinomainen</strong>
+        <span id="heroSocialSub">Tuhansia kandidaatteja valmistautunut CivicLearn-verkostossa.</span>
       </div>
     </div>
-
-    <style>
-      .hero-social { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; max-width: min(100%, 480px); margin: 0 auto; }
-      .hero-social-top { display: flex; align-items: center; gap: 0.4rem; }
-      .hero-social-sub { font-size: 0.88rem; color: #666; text-align: center; max-width: 100%; overflow-wrap: break-word; padding: 0 1rem; }
-      .mobile-only { display: none; }
-      @media (max-width: 820px) { .mobile-only { display: inline; } }
-      @media (min-width: 821px) {
-        .hero-social { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 0.4rem; }
-        .hero-social-sub::before { content: "· "; }
-      }
-    </style>
-
-    <div class="hero-image-wide">
-      <img src="/assets/images/devices-fi-v2.webp" alt="CivicLearn Kansalaisuuskoe: hallintapaneeli arvioidulla pistemäärällä ja pikatesti tietokoneella ja iPhonella" width="1920" height="1256" fetchpriority="high" decoding="async" onerror="this.style.display='none'">
+    <div class="hero-img">
+      <img src="/assets/images/devices-fi-v2.webp" alt="CivicLearn Kansalaisuuskoe: hallintapaneeli arvioidulla pistemäärällä ja pikatesti tietokoneella ja iPhonella" width="1920" height="1256" fetchpriority="high" decoding="async">
     </div>
-
   </div>
 </section>
 
 
 <!-- FEATURES: WHAT'S INCLUDED -->
-<section class="features-section">
-
-  <div class="section-heading">
-    <div class="section-kicker" id="featKicker">Kaikki yhdessä paikassa</div>
-    <h2 class="section-title" id="featTitle">Valmistaudu tehokkaasti kansalaisuuskokeeseen</h2>
-    <p class="section-lead" id="featLead">
-      Harjoittele 800 kysymyksellä, testaa osaamistasi realistisilla simulaatioilla
-      ja seuraa edistymistäsi aihealueittain.
-    </p>
-  </div>
-
-  <div class="features-grid">
-
-    <div class="feature-card" id="card1" onclick="location.href=this.querySelector('a').href">
-      <a href="/fi/tietoa-kokeesta/" class="feature-card-link">
-        <div class="feature-icon"><img src="/assets/images/5.svg" alt=""></div>
-        <h3 class="feature-title" id="card1Title">Tietoa kansalaisuuskokeesta</h3>
-        <p class="feature-text" id="card1Text">
-          Mitä koe sisältää, milloin se tulee voimaan, keitä se koskee ja
-          miten siihen valmistaudutaan. Kaikki oleellinen yhdellä sivulla.
-        </p>
-        <div class="feature-cta" id="card1Cta">Lue lisää kokeesta <span class="arrow">›</span></div>
-      </a>
+<section class="section feat-v2">
+  <div class="wrap">
+    <div class="section-head"><span class="kicker" id="featKicker">Kaikki yhdessä paikassa</span><h2 id="featTitle">Valmistaudu tehokkaasti kansalaisuuskokeeseen</h2><p id="featLead">Harjoittele 800 kysymyksellä, testaa osaamistasi realistisilla simulaatioilla ja seuraa edistymistäsi aihealueittain.</p></div>
+    <div class="features">
+      <div class="feature" id="card1">
+        <img src="/assets/images/5.svg" alt="">
+        <h3 id="card1Title">Tietoa kansalaisuuskokeesta</h3>
+        <p id="card1Text">Mitä koe sisältää, milloin se tulee voimaan, keitä se koskee ja miten siihen valmistaudutaan. Kaikki oleellinen yhdellä sivulla.</p>
+        <a class="feat-link" href="/fi/tietoa-kokeesta/" id="card1Cta">Lue lisää kokeesta <span class="arrow">›</span></a>
+      </div>
+      <div class="feature" id="card2">
+        <img src="/assets/images/6.svg" alt="">
+        <h3 id="card2Title">Ilmainen harjoitustesti</h3>
+        <p id="card2Text">Testaa tietosi 10 aidolla koekysymyksellä ennen kuin hankit täyden käyttöoikeuden. Näe heti missä olet vahva ja missä on parannettavaa.</p>
+        <a class="feat-link" href="/fi/ilmainen-testi/" id="card2Cta">Tee ilmainen testi <span class="arrow">›</span></a>
+      </div>
+      <div class="feature" id="card3">
+        <img src="/assets/images/3.svg" alt="">
+        <h3 id="card3Title">800 kysymystä — 5 aihealuetta</h3>
+        <p id="card3Text">Harjoittele omaan tahtiisi selitysten kera kolmella kielellä, seuraa edistymistäsi aiheittain ja valmistaudu koepäivään.</p>
+        <a class="feat-link" href="https://civiclearn.com/kansalaisuuskoe/checkout" id="card3Cta">Aloita harjoittelu nyt <span class="arrow">›</span></a>
+      </div>
     </div>
-
-    <div class="feature-card" id="card2" onclick="location.href=this.querySelector('a').href">
-      <a href="/fi/ilmainen-testi/" class="feature-card-link">
-        <div class="feature-icon"><img src="/assets/images/6.svg" alt=""></div>
-        <h3 class="feature-title" id="card2Title">Ilmainen harjoitustesti</h3>
-        <p class="feature-text" id="card2Text">
-          Testaa tietosi 10 aidolla koekysymyksellä ennen kuin hankit täyden
-          käyttöoikeuden. Näe heti missä olet vahva ja missä on parannettavaa.
-        </p>
-        <div class="feature-cta" id="card2Cta">Tee ilmainen testi <span class="arrow">›</span></div>
-      </a>
-    </div>
-
-    <div class="feature-card" id="card3" onclick="location.href='https://civiclearn.com/kansalaisuuskoe/checkout'">
-      <a href="https://civiclearn.com/kansalaisuuskoe/checkout" class="feature-card-link">
-        <div class="feature-icon"><img src="/assets/images/3.svg" alt=""></div>
-        <h3 class="feature-title" id="card3Title">800 kysymystä — 5 aihealuetta</h3>
-        <p class="feature-text" id="card3Text">
-          Harjoittele omaan tahtiisi selitysten kera kolmella kielellä, seuraa
-          edistymistäsi aiheittain ja valmistaudu koepäivään.
-        </p>
-        <div class="feature-cta" id="card3Cta">Aloita harjoittelu nyt <span class="arrow">›</span></div>
-      </a>
-    </div>
-
   </div>
 </section>
 
 
 <!-- INLINE TEST -->
-<section class="inline-test">
-  <div class="inline-test-inner">
-
-    <h2 class="inline-test-heading" id="quizHeading">Testaa tietosi</h2>
-    <p class="inline-test-lead" id="quizLead">10 kysymystä Suomesta — kuinka hyvin tunnet maan johon haluat kansalaiseksi?</p>
-
-    <div id="inline-test-questions">
-      <!-- Populated by quiz JS -->
+<section class="section quiz" id="free-questions">
+  <div class="wrap">
+    <div class="quiz-top">
+      <div class="section-head"><span class="kicker" id="v2QuizKicker">Ilmainen harjoitus</span><h2 id="quizHeading">Testaa tietosi</h2><p id="quizLead">10 kysymystä Suomesta — kuinka hyvin tunnet maan johon haluat kansalaiseksi?</p></div>
+      <div class="quiz-actions"></div>
     </div>
-
-    <div class="inline-progressbar-wrapper">
-      <div class="inline-progressbar" id="inline-progressbar"></div>
+    <div class="progress">
+      <div id="inline-progress-text"></div>
+      <div class="progress-track"><div id="inline-progressbar"></div></div>
     </div>
-    <p id="inline-progress-text" class="inline-progress-text"></p>
-
+    <div id="inline-test-questions"></div>
   </div>
 </section>
 
 
 <!-- PRICING -->
-<section class="premium-pricing">
-
-  <div class="section-heading">
-    <div class="section-kicker" id="priceKicker">Hinnoittelu</div>
-    <h2 class="section-title" id="priceTitle">Valitse sinulle sopiva vaihtoehto</h2>
-    <p class="section-lead" id="priceLead">
-      Kertamaksu — elinikäinen käyttöoikeus. Ei tilauksia.
-    </p>
-  </div>
-
-  <div class="pricing-toggle-row">
-    <button class="pricing-toggle-btn active" data-plan="solo" id="pBtn1">
+<section class="section pricing-v2" id="pricing">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="kicker" id="priceKicker">Hinnoittelu</span>
+      <h2 id="priceTitle">Valitse sinulle sopiva vaihtoehto</h2>
+      <p id="priceLead">Kertamaksu — elinikäinen käyttöoikeus. Ei tilauksia.</p>
+    </div>
+    <div class="pricing-toggle-row">
+<button class="pricing-toggle-btn active" data-plan="solo" id="pBtn1">
       Kansalaisuuskoe
     </button>
-    <button class="pricing-toggle-btn" data-plan="bundle" id="pBtn2">
+<button class="pricing-toggle-btn" data-plan="bundle" id="pBtn2">
       Kansalaisuuskoe + YKI <span class="bundle-badge" id="pSaveBadge">Säästä €39</span>
-    </button>
-  </div>
-
-  <div class="pricing-card">
-
-    <div class="pricing-top">
-      <span class="pricing-tag" id="pricing-tag-text">Kansalaisuuskoe</span>
+</button>
+</div>
+    <div class="price-card">
+      <div class="price-left">
+        <span class="price-tag" id="pricing-tag-text">Kansalaisuuskoe</span>
+        <div class="price-amount" id="pricing-amount">€69</div>
+        <p class="price-sub" id="pricing-subtitle">Kertamaksu — elinikäinen käyttöoikeus</p>
+        <div class="bundle-saving" id="pricing-saving">€69 + €69 = €138 → maksat €99</div>
+        
+        <a class="btn btn-primary" href="https://civiclearn.com/kansalaisuuskoe/checkout" id="pricing-cta-link">Aloita nyt — €69</a>
+        <p class="price-note" id="pricingGuarantee">Kertamaksu. Ei tilauksia. Elinikäinen käyttöoikeus.</p>
+      </div>
+      <div class="price-right">
+        <h3 id="v2Wyg">Mitä saat</h3>
+        <ul class="checks feature-list">
+          <li id="pf1">800 harjoituskysymystä — 5 aihealuetta</li>
+          <li id="pf2">Kolmikielinen: suomi, ruotsi ja englanti</li>
+          <li id="pf3">Koesimulaatiot: 25 kysymystä, 45 min, 80 % läpäisyraja</li>
+          <li id="pf4">Pikalliset testit, muistikortit ja heikkojen alueiden seuranta</li>
+          <li id="pf5">Reaaliaikainen edistymiskojelauta aihealueittain</li>
+          <li id="pf6">Toimii puhelimella, tabletilla ja tietokoneella</li>
+          <li id="pf7">Välitön aktivointi maksun jälkeen</li>
+          <li id="pf8x">Kysymyspankki päivitetään virallisten materiaalien mukaan — automaattisesti</li>
+          <li class="bundle-extra" id="pf8">+ YKI-kielikoe harjoitusmateriaali (suomi/ruotsi)</li>
+          <li class="bundle-extra" id="pf9">+ Pääsy molempiin alustoihin samoilla tunnuksilla</li>
+        </ul>
+      </div>
     </div>
-
-    <div class="pricing-price">
-      <div class="amount" id="pricing-amount">€69</div>
-      <div class="subtitle" id="pricing-subtitle">Kertamaksu — elinikäinen käyttöoikeus</div>
-      <div class="bundle-saving" id="pricing-saving">€69 + €69 = €138 → maksat €99</div>
-    </div>
-
-    <div class="pricing-divider"></div>
-
-    <ul class="feature-list">
-      <li id="pf1">800 harjoituskysymystä — 5 aihealuetta</li>
-      <li id="pf2">Kolmikielinen: suomi, ruotsi ja englanti</li>
-      <li id="pf3">Koesimulaatiot: 25 kysymystä, 45 min, 80 % läpäisyraja</li>
-      <li id="pf4">Pikalliset testit, muistikortit ja heikkojen alueiden seuranta</li>
-      <li id="pf5">Reaaliaikainen edistymiskojelauta aihealueittain</li>
-      <li id="pf6">Toimii puhelimella, tabletilla ja tietokoneella</li>
-      <li id="pf7">Välitön aktivointi maksun jälkeen</li>
-      <li id="pf8x">Kysymyspankki päivitetään virallisten materiaalien mukaan — automaattisesti</li>
-      <li class="bundle-extra" id="pf8">+ YKI-kielikoe harjoitusmateriaali (suomi/ruotsi)</li>
-      <li class="bundle-extra" id="pf9">+ Pääsy molempiin alustoihin samoilla tunnuksilla</li>
-    </ul>
-
-    <a class="pricing-cta" href="https://civiclearn.com/kansalaisuuskoe/checkout" id="pricing-cta-link">
-      Aloita nyt — €69
-    </a>
-
   </div>
-
-  <div class="pricing-guarantee" id="pricingGuarantee">
-    Kertamaksu. Ei tilauksia. Elinikäinen käyttöoikeus.
-  </div>
-
 </section>
 
 
 <!-- FAQ -->
-<section class="cl-faq">
-
-  <div class="section-heading">
-    <div class="section-kicker" id="faqKicker">Usein kysyttyä</div>
-    <h2 class="section-title" id="faqTitle">FAQ — Kansalaisuuskoe</h2>
-  </div>
-
-  <div id="faqList">
-    <div class="faq-item">
-      <div class="faq-question"><span>Milloin kansalaisuuskoe tulee pakolliseksi?</span></div>
-      <div class="faq-answer"><p>Tasavallan presidentti vahvisti kansalaisuuslain muutokset 16.6.2026. Laki tulee voimaan 1.1.2027, mutta koetta vaaditaan vasta hakemuksilta, jotka jätetään 1.3.2027 tai sen jälkeen. Ennen sitä jätetyt hakemukset käsitellään vanhan lain mukaan. Virallista oppimateriaalia ei ole vielä julkaistu, mutta aihealueet on vahvistettu — aloita harjoittelu jo nyt.</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question"><span>Onko tämä tilaus?</span></div>
-      <div class="faq-answer"><p>Ei. Kertamaksulla (€69) saat rajoittamattoman käyttöoikeuden kaikkeen sisältöön ilman tilausta. Yhdistelmäpaketti (€99) sisältää myös YKI-kielitestivalmennuksen.</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question"><span>Ketä kansalaisuuskoe koskee?</span></div>
-      <div class="faq-answer"><p>Vaatimus koskee 18–64-vuotiaita kansalaisuudenhakijoita. Vapautuksia myönnetään henkilöille, joilla on suomalainen ylioppilastutkinto tai korkeakoulututkinto suomalaisesta oppilaitoksesta.</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question"><span>Ovatko harjoituskysymyksenne virallisia koekysymyksiä?</span></div>
-      <div class="faq-answer"><p>Eivät. Kysymyksemme perustuvat vahvistettuihin aihealueisiin ja Migrin taustamateriaaliin. Virallista koepankkia ei julkaista — Migri tilaa kokeen yliopistolta, ja kysymykset pysyvät salaisina, aivan kuten YKI-kokeessa. Kun virallinen oppimateriaali julkaistaan, tarkistamme kysymyspankkimme ja päivitämme sen tarvittaessa. Kaikki olemassa olevat käyttäjät saavat päivitykset automaattisesti — ilman lisämaksua.</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question"><span>Millä kielellä virallinen koe tehdään?</span></div>
-      <div class="faq-answer"><p>Virallinen koe järjestetään suomeksi tai ruotsiksi. CivicLearn-alustalla kaikki 800 kysymystä ovat saatavilla kolmella kielellä (suomi, ruotsi, englanti), jotta voit opiskella omalla äidinkielelläsi.</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question"><span>Mikä on €99-paketti?</span></div>
-      <div class="faq-answer"><p>Yhdistelmäpaketti sisältää sekä kansalaisuuskoevalmennuksen (€69) että YKI-kielitestivalmennuksen (€69) — yhteensä €99 eli säästät €39. Molemmat vaaditaan useimmiten kansalaisuudenhakua varten.</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question"><span>Olen juuri maksanut. Mitä tapahtuu nyt?</span></div>
-      <div class="faq-answer"><p>Maksun jälkeen luot salasanan suoraan. Sinut ohjataan kirjautumissivulle. Syötä sähköpostiosoitteesi ja uusi salasanasi — saat välittömän pääsyn henkilökohtaiseen harjoittelualueeseesi.</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question"><span>Voinko käyttää alustaa puhelimella tai tabletilla?</span></div>
-      <div class="faq-answer"><p>Kyllä. Alustaan pääsee miltä tahansa internetyhteydellä varustetulta laitteelta — tietokoneelta, tabletilta tai puhelimelta.</p></div>
+<section class="section" style="padding-top:0">
+  <div class="wrap faq-grid">
+    <div class="section-head"><span class="kicker" id="faqKicker">Usein kysyttyä</span><h2 id="faqTitle">FAQ — Kansalaisuuskoe</h2><p id="v2FaqMore">Muita kysymyksiä? <a href="/fi/yhteystiedot/">Kirjoita meille</a>.</p></div>
+    <div class="faq-list faq-legacy" id="faqList">
+      <div class="faq-item">
+<div class="faq-question"><span>Milloin kansalaisuuskoe tulee pakolliseksi?</span></div>
+<div class="faq-answer"><p>Tasavallan presidentti vahvisti kansalaisuuslain muutokset 16.6.2026. Laki tulee voimaan 1.1.2027, mutta koetta vaaditaan vasta hakemuksilta, jotka jätetään 1.3.2027 tai sen jälkeen. Ennen sitä jätetyt hakemukset käsitellään vanhan lain mukaan. Virallista oppimateriaalia ei ole vielä julkaistu, mutta aihealueet on vahvistettu — aloita harjoittelu jo nyt.</p></div>
+</div>
+      <div class="faq-item">
+<div class="faq-question"><span>Onko tämä tilaus?</span></div>
+<div class="faq-answer"><p>Ei. Kertamaksulla (€69) saat rajoittamattoman käyttöoikeuden kaikkeen sisältöön ilman tilausta. Yhdistelmäpaketti (€99) sisältää myös YKI-kielitestivalmennuksen.</p></div>
+</div>
+      <div class="faq-item">
+<div class="faq-question"><span>Ketä kansalaisuuskoe koskee?</span></div>
+<div class="faq-answer"><p>Vaatimus koskee 18–64-vuotiaita kansalaisuudenhakijoita. Vapautuksia myönnetään henkilöille, joilla on suomalainen ylioppilastutkinto tai korkeakoulututkinto suomalaisesta oppilaitoksesta.</p></div>
+</div>
+      <div class="faq-item">
+<div class="faq-question"><span>Ovatko harjoituskysymyksenne virallisia koekysymyksiä?</span></div>
+<div class="faq-answer"><p>Eivät. Kysymyksemme perustuvat vahvistettuihin aihealueisiin ja Migrin taustamateriaaliin. Virallista koepankkia ei julkaista — Migri tilaa kokeen yliopistolta, ja kysymykset pysyvät salaisina, aivan kuten YKI-kokeessa. Kun virallinen oppimateriaali julkaistaan, tarkistamme kysymyspankkimme ja päivitämme sen tarvittaessa. Kaikki olemassa olevat käyttäjät saavat päivitykset automaattisesti — ilman lisämaksua.</p></div>
+</div>
+      <div class="faq-item">
+<div class="faq-question"><span>Millä kielellä virallinen koe tehdään?</span></div>
+<div class="faq-answer"><p>Virallinen koe järjestetään suomeksi tai ruotsiksi. CivicLearn-alustalla kaikki 800 kysymystä ovat saatavilla kolmella kielellä (suomi, ruotsi, englanti), jotta voit opiskella omalla äidinkielelläsi.</p></div>
+</div>
+      <div class="faq-item">
+<div class="faq-question"><span>Mikä on €99-paketti?</span></div>
+<div class="faq-answer"><p>Yhdistelmäpaketti sisältää sekä kansalaisuuskoevalmennuksen (€69) että YKI-kielitestivalmennuksen (€69) — yhteensä €99 eli säästät €39. Molemmat vaaditaan useimmiten kansalaisuudenhakua varten.</p></div>
+</div>
+      <div class="faq-item">
+<div class="faq-question"><span>Olen juuri maksanut. Mitä tapahtuu nyt?</span></div>
+<div class="faq-answer"><p>Maksun jälkeen luot salasanan suoraan. Sinut ohjataan kirjautumissivulle. Syötä sähköpostiosoitteesi ja uusi salasanasi — saat välittömän pääsyn henkilökohtaiseen harjoittelualueeseesi.</p></div>
+</div>
+      <div class="faq-item">
+<div class="faq-question"><span>Voinko käyttää alustaa puhelimella tai tabletilla?</span></div>
+<div class="faq-answer"><p>Kyllä. Alustaan pääsee miltä tahansa internetyhteydellä varustetulta laitteelta — tietokoneelta, tabletilta tai puhelimelta.</p></div>
+</div>
     </div>
   </div>
-
 </section>
 
 
 <!-- FEATURED ARTICLES -->
-<section class="home-articles">
-  <div class="section-heading">
-    <div class="section-kicker" id="artKicker">Lisää luettavaa</div>
-    <h2 class="section-title" id="artTitle">Artikkeleita kansalaisuuskokeesta</h2>
-    <p class="section-lead" id="artLead">
-      Taustatietoa, opiskeluvinkkejä ja kaikki mitä sinun tulee tietää
-      Suomen uusista kansalaisuusvaatimuksista.
-    </p>
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head"><span class="kicker" id="artKicker">Lisää luettavaa</span><h2 id="artTitle">Artikkeleita kansalaisuuskokeesta</h2><p id="artLead">Taustatietoa, opiskeluvinkkejä ja kaikki mitä sinun tulee tietää Suomen uusista kansalaisuusvaatimuksista.</p></div>
+    <div class="home-articles-grid" id="homeArticlesGrid"></div>
+    <p class="articles-more"><a href="/fi/artikkelit/" id="artMore">Katso kaikki artikkelit →</a></p>
   </div>
-
-  <!-- PASSPORT RANKING STRIP — Lisää luettavaa (further-reading pointer → ranking page).
-       NOTE: static FI copy; NOT yet wired into the C{} i18n dictionary, so it stays Finnish on SV/EN/RU. -->
-  <a href="https://civiclearn.com/passport-ranking"
-     style="display:flex;align-items:center;gap:14px;max-width:820px;margin:0 auto 24px;padding:13px 22px;background:#fff;border:1px solid #e5e1da;border-left:3px solid #7c3aed;border-radius:12px;text-decoration:none;color:#1d2230;text-align:left;transition:border-color .15s,box-shadow .15s;"
-     onmouseover="this.style.borderColor='#7c3aed';this.style.boxShadow='0 4px 16px rgba(124,58,237,.12)'"
-     onmouseout="this.style.borderColor='#e5e1da';this.style.borderLeftColor='#7c3aed';this.style.boxShadow='none'">
-    <span id="prsPill" style="flex:0 0 auto;background:#f5f0ff;color:#7c3aed;font-weight:700;font-size:.7rem;letter-spacing:.02em;padding:5px 10px;border-radius:6px;white-space:nowrap;">PASSIVERTAILU</span>
-    <span style="flex:1 1 auto;min-width:0;font-size:.86rem;line-height:1.45;color:#555;text-align:left;">
-      <strong id="prsText" style="color:#1a1a2e;">Suomen passi on yksi maailman vahvimmista.</strong>
-    </span>
-    <span id="prsGo" style="flex:0 0 auto;color:#7c3aed;font-weight:600;font-size:.84rem;white-space:nowrap;">Katso sijoitus &rarr;</span>
-  </a>
-
-  <div class="home-articles-grid" id="homeArticlesGrid"></div>
-
-  <p class="home-articles-more">
-    <a href="/fi/artikkelit/" id="artMore">Katso kaikki artikkelit →</a>
-  </p>
 </section>
 
 
 <!-- COMPATIBILITY -->
-<section class="compat-section">
-  <div class="compat-inner">
-    <h2 class="compat-title" id="compatTitle">Yhteensopiva kaikkien laitteiden ja modernien selainten kanssa</h2>
-    <div class="compat-grid">
-      <div class="compat-item"><img src="/assets/images/logos/windows.svg"><p>Windows</p></div>
-      <div class="compat-item"><img src="/assets/images/logos/macos.svg"><p>macOS</p></div>
-      <div class="compat-item"><img src="/assets/images/logos/android.svg"><p>Android</p></div>
-      <div class="compat-item"><img src="/assets/images/logos/ios.svg"><p>iPhone / iPad</p></div>
-      <div class="compat-item"><img src="/assets/images/logos/chrome.svg"><p>Chrome</p></div>
-      <div class="compat-item"><img src="/assets/images/logos/safari.svg"><p>Safari</p></div>
-      <div class="compat-item"><img src="/assets/images/logos/firefox.svg"><p>Firefox</p></div>
+<!-- CLOSING CTA -->
+<section class="closing-wrap" style="padding:24px 0 40px">
+  <div class="wrap">
+    <div class="closing">
+      <div>
+        <h2 id="v2ClosingH">Valmiina kansalaisuuskokeeseen?</h2>
+        <p id="v2ClosingP">800 harjoituskysymystä 5 aihealueelta, koesimulaatiot ja selitykset yhdessä paikassa. €69, kertamaksu.</p>
+      </div>
+      <a href="https://civiclearn.com/kansalaisuuskoe/checkout" class="btn btn-primary" id="v2ClosingBtn">Aloita harjoittelu</a>
+    </div>
+  </div>
+</section>
+
+<section style="padding:24px 0 0">
+  <div class="wrap">
+    <a class="rank" href="https://civiclearn.com/passport-ranking">
+      <span class="rank-tag" id="prsPill">PASSIVERTAILU</span>
+      <span><strong id="prsText">Suomen passi on yksi maailman vahvimmista.</strong></span>
+      <span class="rank-go" id="prsGo">Katso sijoitus →</span>
+    </a>
+    <div class="devices" aria-label="Yhteensopiva kaikkien laitteiden ja modernien selainten kanssa">
+      <span class="sr-only" id="compatTitle">Yhteensopiva kaikkien laitteiden ja modernien selainten kanssa</span>
+      <span><img src="/assets/images/logos/windows.svg" alt="">Windows</span>
+      <span><img src="/assets/images/logos/macos.svg" alt="">macOS</span>
+      <span><img src="/assets/images/logos/android.svg" alt="">Android</span>
+      <span><img src="/assets/images/logos/ios.svg" alt="">iPhone / iPad</span>
+      <span><img src="/assets/images/logos/chrome.svg" alt="">Chrome</span>
+      <span><img src="/assets/images/logos/safari.svg" alt="">Safari</span>
+      <span><img src="/assets/images/logos/firefox.svg" alt="">Firefox</span>
     </div>
   </div>
 </section>
 
 
 <!-- FOOTER -->
-<footer class="site-footer">
-  <div class="footer-inner">
+<footer class="foot">
+  <div class="wrap">
     <div>© <span id="footer-year"></span> Kansalaisuuskoe.com — <span id="footerCopy">osa CivicLearn-verkostoa</span>.</div>
-    <div class="footer-links">
+    <nav>
       <a href="https://civiclearn.com/insights">Insights</a>
       <a href="/fi/ilmainen-testi/" id="ftFreeTest">Ilmainen testi</a>
-      <a href="/fi/artikkelit/"     id="ftArticles">Artikkelit</a>
-      <a href="/fi/yhteystiedot/"   id="ftContact">Yhteystiedot</a>
-      <a href="/fi/ehdot/"          id="ftPolicies">Ehdot</a>
-    </div>
+      <a href="/fi/artikkelit/" id="ftArticles">Artikkelit</a>
+      <a href="/fi/yhteystiedot/" id="ftContact">Yhteystiedot</a>
+      <a href="/fi/ehdot/" id="ftPolicies">Ehdot</a>
+    </nav>
   </div>
 </footer>
 
@@ -977,5 +893,50 @@ document.addEventListener('DOMContentLoaded',function(){
 })();
 </script>
 
+<!-- Mobile sticky CTA (appears once the hero button scrolls away, hides over the quiz and pricing) -->
+<div class="sticky-cta" id="sticky-cta" aria-hidden="true">
+  <span id="v2Sticky"><b>€69 kertamaksu</b>Elinikäinen pääsy</span>
+  <a href="https://civiclearn.com/kansalaisuuskoe/checkout" class="btn btn-primary" tabindex="-1" id="v2StickyBtn">Aloita</a>
+</div>
+
+<script>
+(function(){
+  var s=document.getElementById('sticky-cta'), h=document.querySelector('.hero-ctas .btn-primary'), p=document.getElementById('pricing'), q=document.getElementById('free-questions');
+  if(!('IntersectionObserver' in window)||!s||!h) return;
+  var heroGone=false, priceVisible=false, quizVisible=false;
+  function upd(){var on=heroGone&&!priceVisible&&!quizVisible;s.classList.toggle('show',on);s.setAttribute('aria-hidden',on?'false':'true');}
+  new IntersectionObserver(function(e){heroGone=!e[0].isIntersecting&&e[0].boundingClientRect.top<0;upd();}).observe(h);
+  if(p) new IntersectionObserver(function(e){priceVisible=e[0].isIntersecting;upd();},{threshold:.15}).observe(p);
+  if(q) new IntersectionObserver(function(e){quizVisible=e[0].isIntersecting;upd();},{threshold:.05}).observe(q);
+})();
+</script>
+<script>
+/* Phones: free questions become a swipeable row and auto-advance after each answer */
+(function(){
+  var c=document.getElementById('inline-test-questions'); if(!c||!window.matchMedia) return;
+  var mq=window.matchMedia('(max-width:860px)');
+  c.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('.inline-option-btn'); if(!b||!mq.matches) return;
+    var card=b.closest('.inline-question-card'); if(!card) return;
+    var wrong=!!card.querySelector('.inline-wrong');
+    setTimeout(function(){
+      var n=card.nextElementSibling; if(!n) return;
+      var pad=parseInt(getComputedStyle(c).paddingLeft,10)||0;
+      c.scrollTo({left:n.offsetLeft-pad,behavior:'smooth'});
+    }, wrong?2000:1000);
+  });
+})();
+</script>
+<script>
+/* v2 blocks that are new on this page: translate them along with the language buttons */
+(function(){
+  var V={"fi": {"v2Meta": "<strong>€69 kertamaksu</strong> · elinikäinen pääsy · ei tilausta", "v2Wyg": "Mitä saat", "v2QuizKicker": "Ilmainen harjoitus", "v2FaqMore": "Muita kysymyksiä? <a href=\"/contact/\">Kirjoita meille</a>.", "v2ClosingH": "Valmiina kansalaisuuskokeeseen?", "v2ClosingP": "800 harjoituskysymystä 5 aihealueelta, koesimulaatiot ja selitykset yhdessä paikassa. €69, kertamaksu.", "v2Sticky": "<b>€69 kertamaksu</b>Elinikäinen pääsy", "v2StickyBtn": "Aloita"}, "sv": {"v2Meta": "<strong>€69, engångsbetalning</strong> · livstidsåtkomst · ingen prenumeration", "v2Wyg": "Det här ingår", "v2QuizKicker": "Gratis övning", "v2FaqMore": "Fler frågor? <a href=\"/contact/\">Skriv till oss</a>.", "v2ClosingH": "Redo för medborgarskapsprovet?", "v2ClosingP": "800 övningsfrågor inom 5 ämnesområden, provsimuleringar och förklaringar på ett ställe. €69, en gång.", "v2Sticky": "<b>€69, en gång</b>Livstidsåtkomst", "v2StickyBtn": "Kom igång"}, "en": {"v2Meta": "<strong>€69 once</strong> · lifetime access · no subscription", "v2Wyg": "What you get", "v2QuizKicker": "Free practice", "v2FaqMore": "Anything else? <a href=\"/contact/\">Write to us</a>.", "v2ClosingH": "Ready for the citizenship test?", "v2ClosingP": "800 practice questions across 5 topic areas, mock exams and explanations in one place. €69, once.", "v2Sticky": "<b>€69 once</b>Lifetime access", "v2StickyBtn": "Get started"}, "ru": {"v2Meta": "<strong>€69 один раз</strong> · пожизненный доступ · без подписки", "v2Wyg": "Что входит", "v2QuizKicker": "Бесплатная практика", "v2FaqMore": "Остались вопросы? <a href=\"/contact/\">Напишите нам</a>.", "v2ClosingH": "Готовы к экзамену на гражданство?", "v2ClosingP": "800 тренировочных вопросов по 5 темам, пробные экзамены и объяснения в одном месте. €69, один раз.", "v2Sticky": "<b>€69 один раз</b>Пожизненный доступ", "v2StickyBtn": "Начать"}};
+  function upd(){var l=(document.documentElement.lang||'').slice(0,2),d=V[l];if(!d)return;
+    for(var k in d){var e=document.getElementById(k);if(e)e.innerHTML=d[k];}
+    var p=document.querySelector('.hero-ctas .btn-primary'),cb=document.getElementById('v2ClosingBtn');if(p&&cb)cb.textContent=p.textContent;}
+  document.addEventListener('DOMContentLoaded',function(){setTimeout(upd,0);
+    document.querySelectorAll('.cl-lang-btn').forEach(function(b){b.addEventListener('click',function(){setTimeout(upd,0);});});});
+})();
+</script>
 </body>
 </html>
