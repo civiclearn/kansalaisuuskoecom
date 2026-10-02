@@ -39,7 +39,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/newhome.css">
-  <link rel="stylesheet" href="https://civiclearn.com/assets/css/presale-home.css?v=2">
+  <link rel="stylesheet" href="https://civiclearn.com/assets/css/presale-home.css?v=9">
 
   <!-- Pricing + bundle styles + language switcher + Finnish flag progress bar -->
   <style>
@@ -378,23 +378,20 @@
       <h2 id="priceTitle">Valitse sinulle sopiva vaihtoehto</h2>
       <p id="priceLead">Kertamaksu — elinikäinen käyttöoikeus. Ei tilauksia.</p>
     </div>
-    <div class="pricing-toggle-row">
-<button class="pricing-toggle-btn active" data-plan="solo" id="pBtn1">
-      Kansalaisuuskoe
-    </button>
-<button class="pricing-toggle-btn" data-plan="bundle" id="pBtn2">
-      Kansalaisuuskoe + YKI <span class="bundle-badge" id="pSaveBadge">Säästä €39</span>
-</button>
-</div>
+    
     <div class="price-card">
       <div class="price-left">
         <span class="price-tag" id="pricing-tag-text">Kansalaisuuskoe</span>
         <div class="price-amount" id="pricing-amount">€69</div>
         <p class="price-sub" id="pricing-subtitle">Kertamaksu — elinikäinen käyttöoikeus</p>
-        <div class="bundle-saving" id="pricing-saving">€69 + €69 = €138 → maksat €99</div>
         
         <a class="btn btn-primary" href="https://civiclearn.com/kansalaisuuskoe/checkout" id="pricing-cta-link">Aloita nyt — €69</a>
         <p class="price-note" id="pricingGuarantee">Kertamaksu. Ei tilauksia. Elinikäinen käyttöoikeus.</p>
+        <a class="bundle-strip" href="https://civiclearn.com/kansalaisuuskoe/checkout?plan=bundle-fi">
+          <span class="bundle-strip-icon" aria-hidden="true">🎁</span>
+          <span class="bundle-strip-body"><span class="bundle-strip-headline" id="bsHead">+ YKI-kielikoe</span><span class="bundle-strip-sub" id="bsSub">Lisää YKI-harjoitusmateriaali (suomi/ruotsi) — samat tunnukset</span></span>
+          <span class="bundle-strip-price"><span class="bundle-strip-amount">€99</span><span class="bundle-strip-save">−€39</span></span>
+        </a>
       </div>
       <div class="price-right">
         <h3 id="v2Wyg">Mitä saat</h3>
@@ -407,8 +404,6 @@
           <li id="pf6">Toimii puhelimella, tabletilla ja tietokoneella</li>
           <li id="pf7">Välitön aktivointi maksun jälkeen</li>
           <li id="pf8x">Kysymyspankki päivitetään virallisten materiaalien mukaan — automaattisesti</li>
-          <li class="bundle-extra" id="pf8">+ YKI-kielikoe harjoitusmateriaali (suomi/ruotsi)</li>
-          <li class="bundle-extra" id="pf9">+ Pääsy molempiin alustoihin samoilla tunnuksilla</li>
         </ul>
       </div>
     </div>
@@ -564,48 +559,17 @@ document.addEventListener("DOMContentLoaded", bindFaq);
 </script>
 
 
-<!-- PRICING TOGGLE -->
+<!-- PRICING (bundle box replaces the old solo/bundle switch, Oct 2026) -->
 <script>
 (function(){
-  var P={
-    fi:{solo:'Kansalaisuuskoe',bundle:'Kansalaisuuskoe + YKI',as:'€69',ab:'€99',
-        sv:'€69 + €69 = €138 → maksat €99',cs:'Aloita nyt — €69',cb:'Aloita nyt — €99',
-        sub:'Kertamaksu — elinikäinen käyttöoikeus',g:'Kertamaksu. Ei tilauksia. Elinikäinen käyttöoikeus.'},
-    sv:{solo:'Medborgarskapsprovet',bundle:'Medborgarskapsprov + YKI',as:'€69',ab:'€99',
-        sv:'€69 + €69 = €138 → du betalar €99',cs:'Börja nu — €69',cb:'Börja nu — €99',
-        sub:'Engångsbetalning — livstids tillgång',g:'Engångsbetalning. Ingen prenumeration. Livstids tillgång.'},
-    en:{solo:'Citizenship test',bundle:'Citizenship test + YKI',as:'€69',ab:'€99',
-        sv:'€69 + €69 = €138 → you pay €99',cs:'Start now — €69',cb:'Start now — €99',
-        sub:'One-time payment — lifetime access',g:'One-time payment. No subscription. Lifetime access.'},
-    ru:{solo:'Экзамен на гражданство',bundle:'Экзамен + YKI',as:'€69',ab:'€99',
-        sv:'€69 + €69 = €138 → вы платите €99',cs:'Начать — €69',cb:'Начать — €99',
-        sub:'Единовременная оплата — доступ навсегда',g:'Единовременная оплата. Без подписки. Доступ навсегда.'}
-  };
-  var curPlan='solo',curLang='fi';
-
-  function setPlan(plan,lang){
-    curPlan=plan;
-    var p=P[lang]||P.fi;
-    document.querySelectorAll('.pricing-toggle-btn').forEach(function(b){b.classList.toggle('active',b.dataset.plan===plan);});
-    document.getElementById('pricing-amount').textContent=plan==='bundle'?p.ab:p.as;
-    document.getElementById('pricing-tag-text').textContent=plan==='bundle'?p.bundle:p.solo;
-    var sv=document.getElementById('pricing-saving');sv.textContent=p.sv;sv.classList.toggle('visible',plan==='bundle');
-    var cta=document.getElementById('pricing-cta-link');
-    cta.textContent=plan==='bundle'?p.cb:p.cs;
-    cta.href=plan==='bundle'?'https://civiclearn.com/kansalaisuuskoe/checkout?plan=bundle-fi':'https://civiclearn.com/kansalaisuuskoe/checkout';
-    document.querySelectorAll('.feature-list .bundle-extra').forEach(function(el){el.classList.toggle('visible',plan==='bundle');});
-  }
-
-  window.resetPricing=function(lang){
-    curLang=lang;var p=P[lang]||P.fi;
-    document.getElementById('pricing-subtitle').textContent=p.sub;
-    document.getElementById('pricingGuarantee').textContent=p.g;
-    setPlan(curPlan,lang);
-  };
-
-  document.querySelectorAll('.pricing-toggle-btn').forEach(function(btn){
-    btn.addEventListener('click',function(){setPlan(btn.dataset.plan,curLang);});
-  });
+  var P={fi:{sub:'Kertamaksu — elinikäinen käyttöoikeus',g:'Kertamaksu. Ei tilauksia. Elinikäinen käyttöoikeus.',cs:'Aloita nyt — €69',tag:'Kansalaisuuskoe'},
+         sv:{sub:'Engångsbetalning — livstids tillgång',g:'Engångsbetalning. Ingen prenumeration. Livstids tillgång.',cs:'Börja nu — €69',tag:'Medborgarskapsprovet'},
+         en:{sub:'One-time payment — lifetime access',g:'One-time payment. No subscription. Lifetime access.',cs:'Start now — €69',tag:'Citizenship test'},
+         ru:{sub:'Единовременная оплата — доступ навсегда',g:'Единовременная оплата. Без подписки. Доступ навсегда.',cs:'Начать — €69',tag:'Экзамен на гражданство'}};
+  var B={"fi": ["+ YKI-kielikoe", "Lisää YKI-harjoitusmateriaali (suomi/ruotsi) — samat tunnukset"], "sv": ["+ YKI-språkprov", "Lägg till YKI-träningsmaterial (finska/svenska) — samma inloggning"], "en": ["+ YKI language test", "Add YKI practice material (Finnish/Swedish) — same login"], "ru": ["+ Языковой экзамен YKI", "Добавьте подготовку к YKI (финский/шведский) — тот же логин"]};
+  function st(id,t){var e=document.getElementById(id);if(e)e.textContent=t;}
+  window.resetPricing=function(lang){var p=P[lang]||P.fi,b=B[lang]||B.fi;
+    st('pricing-subtitle',p.sub);st('pricingGuarantee',p.g);st('pricing-cta-link',p.cs);st('pricing-tag-text',p.tag);st('bsHead',b[0]);st('bsSub',b[1]);};
   document.addEventListener('DOMContentLoaded',function(){window.resetPricing('fi');});
 })();
 </script>
@@ -852,7 +816,7 @@ function applyLang(lang){
   // pricing
   st('priceKicker',c.prK); st('priceTitle',c.prT); st('priceLead',c.prL);
   st('pBtn1',c.pb1);
-  document.getElementById('pBtn2').innerHTML=c.pb2+' <span class="bundle-badge">'+c.pbSv+'</span>';
+  /* old pricing switch removed (Oct 2026) */
   var pfIds=['pf1','pf2','pf3','pf4','pf5','pf6','pf7','pf8x'];
   pfIds.forEach(function(id,i){var e=document.getElementById(id);if(e)e.textContent=c.pf[i]||'';});
   ['pf8','pf9'].forEach(function(id,i){var e=document.getElementById(id);if(e)e.textContent=c.pb_e[i]||'';});
