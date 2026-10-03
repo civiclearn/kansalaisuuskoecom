@@ -39,7 +39,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/newhome.css">
-  <link rel="stylesheet" href="https://civiclearn.com/assets/css/presale-home.css?v=12">
+  <link rel="stylesheet" href="https://civiclearn.com/assets/css/presale-home.css?v=13">
 
   <!-- Pricing + bundle styles + language switcher + Finnish flag progress bar -->
   <style>
@@ -504,7 +504,7 @@
 <!-- FOOTER -->
 <footer class="foot">
   <div class="wrap">
-    <div>© <span id="footer-year"></span> Kansalaisuuskoe.com — <span id="footerCopy">osa CivicLearn-verkostoa</span>.</div>
+    <div class="foot-id"><span class="foot-copy">© <span id="footer-year"></span> Kansalaisuuskoe.com</span> <a class="cl-tag" href="https://civiclearn.com/" target="_blank" rel="noopener"><img src="https://civiclearn.com/assets/images/cl.png" alt="" width="16" height="16" loading="lazy"><b id="footerAbout">Tietoa CivicLearnista</b><span id="footerSince">vuodesta 2005</span></a></div>
     <nav>
       <a href="https://civiclearn.com/insights">Insights</a>
       <a href="/fi/ilmainen-testi/" id="ftFreeTest">Ilmainen testi</a>
@@ -647,7 +647,8 @@ fi:{
   aM:'Katso kaikki artikkelit →',aMU:'/fi/artikkelit/',
   prsPill:'PASSIVERTAILU',prsText:'Suomen passi on yksi maailman vahvimmista.',prsGo:'Katso sijoitus →',
   compT:'Yhteensopiva kaikkien laitteiden ja modernien selainten kanssa',
-  ftCopy:'osa CivicLearn-verkostoa',
+  ftAbout:'Tietoa CivicLearnista',
+  ftSince:'vuodesta 2005',
   ftFT:'Ilmainen testi',ftFTU:'/fi/ilmainen-testi/',ftA:'Artikkelit',ftAU:'/fi/artikkelit/',
   ftC:'Yhteystiedot',ftCU:'/fi/yhteystiedot/',ftP:'Ehdot',ftPU:'/fi/ehdot/',
 },
@@ -687,7 +688,8 @@ sv:{
   aM:'Se alla artiklar →',aMU:'/sv/artiklar/',
   prsPill:'PASSRANKNING',prsText:'Det finska passet är ett av världens starkaste.',prsGo:'Se placeringen →',
   compT:'Kompatibel med alla enheter och moderna webbläsare',
-  ftCopy:'del av CivicLearn-nätverket',
+  ftAbout:'Om CivicLearn',
+  ftSince:'sedan 2005',
   ftFT:'Gratis test',ftFTU:'/sv/gratis-test/',ftA:'Artiklar',ftAU:'/sv/artiklar/',
   ftC:'Kontakt',ftCU:'/sv/kontakt/',ftP:'Policyer',ftPU:'/sv/policyer/',
 },
@@ -727,7 +729,8 @@ en:{
   aM:'See all articles →',aMU:'/articles/',
   prsPill:'PASSPORT RANKING',prsText:'The Finnish passport is one of the strongest in the world.',prsGo:'See where it ranks →',
   compT:'Compatible with all devices and modern browsers',
-  ftCopy:'part of the CivicLearn network',
+  ftAbout:'About CivicLearn',
+  ftSince:'since 2005',
   ftFT:'Free test',ftFTU:'/free-test/',ftA:'Articles',ftAU:'/articles/',
   ftC:'Contact',ftCU:'/contact/',ftP:'Policies',ftPU:'/policies/',
 },
@@ -767,7 +770,8 @@ ru:{
   aM:'Все статьи →',aMU:'/articles/',
   prsPill:'РЕЙТИНГ ПАСПОРТОВ',prsText:'Финский паспорт — один из сильнейших в мире.',prsGo:'Посмотреть место →',
   compT:'Совместимо со всеми устройствами и современными браузерами',
-  ftCopy:'часть сети CivicLearn',
+  ftAbout:'О CivicLearn',
+  ftSince:'с 2005 года',
   ftFT:'Бесплатный тест',ftFTU:'/ru/besplatny-test/',ftA:'Статьи',ftAU:'/articles/',
   ftC:'Контакты',ftCU:'/contact/',ftP:'Условия',ftPU:'/policies/',
 }};
@@ -842,7 +846,7 @@ function applyLang(lang){
 
   // compat + footer
   st('compatTitle',c.compT);
-  st('footerCopy',c.ftCopy);
+  st('footerAbout',c.ftAbout);st('footerSince',c.ftSince);
   st('ftFreeTest',c.ftFT); sh('ftFreeTest',c.ftFTU);
   st('ftArticles',c.ftA);  sh('ftArticles',c.ftAU);
   st('ftContact',c.ftC);   sh('ftContact',c.ftCU);
